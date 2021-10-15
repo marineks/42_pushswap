@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:34:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 14:48:53 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/15 17:36:45 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,22 @@
 
 typedef struct	s_data
 {
-	t_list stack_a;
-	t_list stack_b;
+	t_list *stack_a;
+	t_list *stack_b;
 	int len_a;
 	int len_b;
 }				t_data;
+
+//      01 - CHECK ERRORS
+int	is_digit(char *arg);
+long int	ft_atol(const char *str);
+int check_int_size(char *str);
+int	check_duplicates(t_data *data);
+
+//      02 - FORMAT
+void	initialize(t_data *data);
+void	put_in_stack_a(char **argv, t_data *data);
+
+//      03 - OPERATIONS
 
 #endif
