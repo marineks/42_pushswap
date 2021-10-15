@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_digit.c                                      :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:46:11 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 15:01:59 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/06/23 15:00:13 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/10/14 17:49:33 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/pushswap.h"
+#include "libft.h"
 
-int	is_digit(char *arg)
+void	ft_lstdelone(t_list *lst, void (*del)(long int))
 {
-	int i;
-
-	i = 0;
-	if (arg[0] == '-')
-		i++;
-	while (arg[i])
+	if (lst)
 	{
-		if (arg[i] < '0' || arg[i] > '9')
-			return (FAILURE);
-		i++;
+		if (del)
+			(*del)(lst->number);
+		free(lst);
 	}
-	return (SUCCESS);
 }

@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_digit.c                                      :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:46:11 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 15:01:59 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/05/31 11:12:08 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/06/25 11:56:56 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/pushswap.h"
+#include "libft.h"
 
-int	is_digit(char *arg)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int i;
+	size_t			i;
+	unsigned char	*first_string;
+	unsigned char	*second_string;
 
 	i = 0;
-	if (arg[0] == '-')
-		i++;
-	while (arg[i])
+	first_string = (unsigned char *)s1;
+	second_string = (unsigned char *)s2;
+	if (n == 0)
+		return (0);
+	while (i < n - 1)
 	{
-		if (arg[i] < '0' || arg[i] > '9')
-			return (FAILURE);
+		if (first_string[i] != second_string[i])
+		{
+			return (first_string[i] - second_string[i]);
+		}
 		i++;
 	}
-	return (SUCCESS);
+	return (first_string[i] - second_string[i]);
 }

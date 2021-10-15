@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_digit.c                                      :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:46:11 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 15:01:59 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/05/24 14:29:20 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/06/25 17:40:18 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/pushswap.h"
+#include "libft.h"
 
-int	is_digit(char *arg)
+int	ft_tolower(int c)
 {
-	int i;
-
-	i = 0;
-	if (arg[0] == '-')
-		i++;
-	while (arg[i])
-	{
-		if (arg[i] < '0' || arg[i] > '9')
-			return (FAILURE);
-		i++;
-	}
-	return (SUCCESS);
+	if (c < 91 && c > 64)
+		return (c + 32);
+	else
+		return (c);
 }

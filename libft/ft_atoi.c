@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_digit.c                                      :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:46:11 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 15:01:59 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/05/24 15:38:43 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/08/04 04:59:33 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/pushswap.h"
-
-int	is_digit(char *arg)
+int	ft_atoi(const char *str)
 {
-	int i;
+	int	result;
+	int	n;
+	int	i;
 
+	result = 0;
+	n = 1;
 	i = 0;
-	if (arg[0] == '-')
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\r'
+		|| str[i] == '\n' || str[i] == '\v' || str[i] == '\f')
 		i++;
-	while (arg[i])
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (arg[i] < '0' || arg[i] > '9')
-			return (FAILURE);
+		if (str[i] == '-')
+			n = -n;
 		i++;
 	}
-	return (SUCCESS);
+	while (str[i] > 47 && str[i] < 58)
+	{
+		result = result * 10 + (str[i] - 48);
+		i++;
+	}
+	return (result * n);
 }

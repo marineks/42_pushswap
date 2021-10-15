@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_digit.c                                      :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:46:11 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 15:01:59 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/06/03 16:40:47 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/06/26 11:26:49 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/pushswap.h"
+#include "libft.h"
 
-int	is_digit(char *arg)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int i;
+	char			*copy;
+	unsigned int	i;
 
+	if (!s || !f)
+		return (NULL);
+	copy = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!copy)
+		return (NULL);
 	i = 0;
-	if (arg[0] == '-')
-		i++;
-	while (arg[i])
+	while (s[i])
 	{
-		if (arg[i] < '0' || arg[i] > '9')
-			return (FAILURE);
+		copy[i] = (*f)(i, s[i]);
 		i++;
 	}
-	return (SUCCESS);
+	copy[i] = '\0';
+	return (copy);
 }

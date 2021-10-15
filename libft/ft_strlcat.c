@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_digit.c                                      :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:46:11 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 15:01:59 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/05/27 11:01:30 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/06/25 17:15:26 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/pushswap.h"
+#include "libft.h"
 
-int	is_digit(char *arg)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	int i;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	if (arg[0] == '-')
+	j = 0;
+	while (dst[i] && i <= dstsize)
 		i++;
-	while (arg[i])
+	if (dstsize == 0 || i >= dstsize)
+		return (dstsize + ft_strlen(src));
+	while (src[j] && (i + j) < dstsize - 1)
 	{
-		if (arg[i] < '0' || arg[i] > '9')
-			return (FAILURE);
-		i++;
+		dst[i + j] = src[j];
+		j++;
 	}
-	return (SUCCESS);
+	dst[i + j] = '\0';
+	return (ft_strlen(src) + i);
 }

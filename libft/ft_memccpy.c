@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_digit.c                                      :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:46:11 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 15:01:59 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/05/31 15:41:29 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/06/24 19:41:00 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/pushswap.h"
+#include "libft.h"
 
-int	is_digit(char *arg)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	int i;
+	unsigned char	*ptr_dest;
+	unsigned char	*ptr_source;
+	unsigned char	occurence;
+	size_t			i;
 
+	ptr_dest = (unsigned char *)dst;
+	ptr_source = (unsigned char *)src;
+	occurence = (unsigned char)c;
 	i = 0;
-	if (arg[0] == '-')
-		i++;
-	while (arg[i])
+	while (i < n)
 	{
-		if (arg[i] < '0' || arg[i] > '9')
-			return (FAILURE);
+		ptr_dest[i] = ptr_source[i];
+		if (ptr_dest[i] == occurence)
+		{
+			return (dst + 1 + i);
+		}
 		i++;
 	}
-	return (SUCCESS);
+	return (NULL);
 }

@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_digit.c                                      :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:46:11 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 15:01:59 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/05/24 14:41:20 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/06/25 17:21:45 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/pushswap.h"
+#include "libft.h"
 
-int	is_digit(char *arg)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int i;
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
 	i = 0;
-	if (arg[0] == '-')
-		i++;
-	while (arg[i])
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	if (n == 0 || (str1[i] == '\0' && n == 0) || (str2[i] == '\0' && n == 0))
+		return (0);
+	while (str1[i] && str2[i] && i < n - 1)
 	{
-		if (arg[i] < '0' || arg[i] > '9')
-			return (FAILURE);
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
 		i++;
 	}
-	return (SUCCESS);
+	return (str1[i] - str2[i]);
 }

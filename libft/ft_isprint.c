@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_digit.c                                      :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:46:11 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 15:01:59 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/05/24 12:22:20 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/06/24 16:48:00 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/pushswap.h"
-
-int	is_digit(char *arg)
+int	ft_isprint(int c)
 {
-	int i;
-
-	i = 0;
-	if (arg[0] == '-')
-		i++;
-	while (arg[i])
-	{
-		if (arg[i] < '0' || arg[i] > '9')
-			return (FAILURE);
-		i++;
-	}
-	return (SUCCESS);
+	if (c >= 32 && c < 127)
+		return (1);
+	else
+		return (0);
 }

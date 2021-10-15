@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_digit.c                                      :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:46:11 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 15:01:59 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/05/25 15:23:54 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/06/25 17:23:40 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/pushswap.h"
+#include "libft.h"
 
-int	is_digit(char *arg)
+char	*ft_strrchr(const char *s, int c)
 {
-	int i;
+	int	i;
 
-	i = 0;
-	if (arg[0] == '-')
-		i++;
-	while (arg[i])
+	i = ft_strlen((char *)s);
+	if ((char)c == '\0')
+		return ((char *)s + i);
+	while (i >= 0)
 	{
-		if (arg[i] < '0' || arg[i] > '9')
-			return (FAILURE);
-		i++;
+		if (s[i] == (char)c)
+			return ((char *)s + i);
+		--i;
 	}
-	return (SUCCESS);
+	return (NULL);
 }

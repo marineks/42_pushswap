@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_digit.c                                      :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:46:11 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 15:01:59 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/05/24 11:57:04 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/06/24 16:23:54 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/pushswap.h"
+#include "libft.h"
 
-int	is_digit(char *arg)
+int	ft_isalnum(int c)
 {
-	int i;
-
-	i = 0;
-	if (arg[0] == '-')
-		i++;
-	while (arg[i])
-	{
-		if (arg[i] < '0' || arg[i] > '9')
-			return (FAILURE);
-		i++;
-	}
-	return (SUCCESS);
+	if (ft_isalpha(c) != 0 || ft_isdigit(c) != 0)
+		return (1);
+	else
+		return (0);
 }

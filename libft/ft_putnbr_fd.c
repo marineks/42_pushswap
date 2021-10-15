@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_digit.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:46:11 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 15:01:59 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/06/04 16:02:33 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/08/04 05:03:38 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/pushswap.h"
+#include "libft.h"
 
-int	is_digit(char *arg)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int i;
-
-	i = 0;
-	if (arg[0] == '-')
-		i++;
-	while (arg[i])
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
+	else if (n >= 0 && n <= 9)
+		ft_putchar_fd((n + '0'), fd);
+	else if (n < 0)
 	{
-		if (arg[i] < '0' || arg[i] > '9')
-			return (FAILURE);
-		i++;
+		ft_putchar_fd('-', fd);
+		ft_putnbr_fd((n * -1), fd);
 	}
-	return (SUCCESS);
+	else if (n >= 0 && n > 9)
+	{
+		ft_putnbr_fd((n / 10), fd);
+		ft_putnbr_fd((n % 10), fd);
+	}
 }

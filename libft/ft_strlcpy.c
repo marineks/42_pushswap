@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_digit.c                                      :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:46:11 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 15:01:59 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/05/25 16:28:28 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/06/25 17:17:54 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/pushswap.h"
+#include "libft.h"
 
-int	is_digit(char *arg)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	int i;
+	size_t	i;
 
 	i = 0;
-	if (arg[0] == '-')
-		i++;
-	while (arg[i])
+	if (dstsize == 0)
+		return (ft_strlen(src));
+	if (src == NULL)
+		return (0);
+	while (src[i] && i < dstsize - 1)
 	{
-		if (arg[i] < '0' || arg[i] > '9')
-			return (FAILURE);
+		dst[i] = src[i];
 		i++;
 	}
-	return (SUCCESS);
+	dst[i] = '\0';
+	return (ft_strlen(src));
 }

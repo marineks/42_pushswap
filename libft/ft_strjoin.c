@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_digit.c                                      :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:46:11 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 15:01:59 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/06/02 16:05:16 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/08/07 13:21:27 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/pushswap.h"
+#include "libft.h"
 
-int	is_digit(char *arg)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int i;
+	char	*res;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	if (arg[0] == '-')
-		i++;
-	while (arg[i])
+	if (*s1 == '\0' || *s2 == '\0')
+		return (NULL);
+	res = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!res)
+		return (NULL);
+	while (s1[i])
 	{
-		if (arg[i] < '0' || arg[i] > '9')
-			return (FAILURE);
+		res[i] = s1[i];
 		i++;
 	}
-	return (SUCCESS);
+	j = 0;
+	while (s2[j])
+	{
+		res[i] = s2[j];
+		i++;
+		j++;
+	}
+	res[i] = '\0';
+	return (res);
 }

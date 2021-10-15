@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_digit.c                                      :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:46:11 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 15:01:59 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/05/28 10:55:22 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/06/25 16:27:30 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/pushswap.h"
+#include "libft.h"
 
-int	is_digit(char *arg)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int i;
+	size_t			i;
+	unsigned char	*res;
 
+	res = (unsigned char *)b;
 	i = 0;
-	if (arg[0] == '-')
-		i++;
-	while (arg[i])
+	while (i < len)
 	{
-		if (arg[i] < '0' || arg[i] > '9')
-			return (FAILURE);
+		res[i] = (unsigned char) c;
 		i++;
-	}
-	return (SUCCESS);
+	}	
+	return (res);
 }

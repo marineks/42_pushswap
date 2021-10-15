@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_digit.c                                      :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:46:11 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 15:01:59 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/05/26 16:23:19 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/06/25 17:23:09 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/pushswap.h"
+#include "libft.h"
 
-int	is_digit(char *arg)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int i;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	if (arg[0] == '-')
-		i++;
-	while (arg[i])
+	if (*needle == '\0')
+		return ((char *)haystack);
+	if (len == 0 || *haystack == 0)
+		return (NULL);
+	while (i < len && haystack[i] != '\0')
 	{
-		if (arg[i] < '0' || arg[i] > '9')
-			return (FAILURE);
+		j = 0;
+		while (haystack[i + j] == needle[j] && ((i + j) < len))
+		{
+			if (j == ft_strlen(needle) - 1)
+				return ((char *)haystack + i);
+			j++;
+		}
 		i++;
 	}
-	return (SUCCESS);
+	return (NULL);
 }

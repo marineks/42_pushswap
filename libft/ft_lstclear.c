@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_digit.c                                      :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:46:11 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 15:01:59 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/06/23 15:21:23 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/10/14 17:49:41 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/pushswap.h"
+#include "libft.h"
 
-int	is_digit(char *arg)
+void	ft_lstclear(t_list **lst, void (*del)(long int))
 {
-	int i;
+	t_list	*current_node;
+	t_list	*next_node;
 
-	i = 0;
-	if (arg[0] == '-')
-		i++;
-	while (arg[i])
+	if (!lst || !*lst || !del)
+		return ;
+	current_node = *lst;
+	while (current_node != NULL)
 	{
-		if (arg[i] < '0' || arg[i] > '9')
-			return (FAILURE);
-		i++;
+		next_node = current_node->next;
+		if (del)
+			(*del)(current_node->number);
+		free(current_node);
+		current_node = next_node;
 	}
-	return (SUCCESS);
+	*lst = NULL;
 }

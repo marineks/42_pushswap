@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_digit.c                                      :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:46:11 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 15:01:59 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/05/27 17:04:29 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/06/25 17:10:48 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/pushswap.h"
+#include "libft.h"
 
-int	is_digit(char *arg)
+char	*ft_strdup(const char *s1)
 {
-	int i;
+	char	*copy;
 
-	i = 0;
-	if (arg[0] == '-')
-		i++;
-	while (arg[i])
-	{
-		if (arg[i] < '0' || arg[i] > '9')
-			return (FAILURE);
-		i++;
-	}
-	return (SUCCESS);
+	copy = (char *)malloc(ft_strlen(s1) + 1 * sizeof(char));
+	if (!copy)
+		return (NULL);
+	ft_strlcpy(copy, s1, ft_strlen(s1) + 1);
+	return (copy);
 }

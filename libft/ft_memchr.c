@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_digit.c                                      :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:46:11 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 15:01:59 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/05/31 10:48:09 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/06/30 11:54:07 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/pushswap.h"
+#include "libft.h"
 
-int	is_digit(char *arg)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int i;
+	unsigned char	*string;
+	unsigned char	occurence;
+	size_t			i;
 
 	i = 0;
-	if (arg[0] == '-')
-		i++;
-	while (arg[i])
+	string = (unsigned char *)s;
+	occurence = (unsigned char)c;
+	if (occurence == 0 && n == 0)
+		return (NULL);
+	while (i < n)
 	{
-		if (arg[i] < '0' || arg[i] > '9')
-			return (FAILURE);
+		if (string[i] == occurence)
+			return (string + i);
 		i++;
 	}
-	return (SUCCESS);
+	return (NULL);
 }
