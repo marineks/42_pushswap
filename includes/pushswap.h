@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:34:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 17:36:45 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/15 18:10:59 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	check_duplicates(t_data *data);
 //      02 - FORMAT
 void	initialize(t_data *data);
 void	put_in_stack_a(char **argv, t_data *data);
-
+void	display_stack(t_data *data, char which_stack);
 //      03 - OPERATIONS
 
 #endif

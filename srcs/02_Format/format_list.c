@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:39:35 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 17:37:11 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/15 18:05:32 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	put_in_stack_a(char **arg, t_data *data)
 		}
 		else
 		{
-			ft_putstr_fd("Error\n", 2);
+			ft_putstr_fd("Error digit or size\n", 2);
 			exit(0);
 		}
 	i++;
