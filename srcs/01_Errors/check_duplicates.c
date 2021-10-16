@@ -6,12 +6,12 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 17:46:15 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 18:26:56 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/16 12:18:07 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
-#include <stdio.h>
+// #include <stdio.h>
 
 int	check_duplicates(t_data *data)
 {
@@ -25,10 +25,10 @@ int	check_duplicates(t_data *data)
 		tmp2 = tmp2->next;
 		while (tmp2 != NULL)
 		{
-			printf("Num de tmp : %ld | Num de tmp2: %ld\n", tmp->number, tmp2->number);
+			// printf("Num de tmp : %ld | Num de tmp2: %ld\n", tmp->number, tmp2->number);
 			if(tmp->number == tmp2->number)
 			{
-				ft_putstr_fd("Error dup\n", 2);
+				ft_putstr_fd("Error : there is at leats one duplicate\n", 2);
 				free(data);
 				return (FAILURE);
 			}
