@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 17:51:39 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/16 15:24:36 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/16 15:25:35 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 		put_in_stack_a(argv, &data);
 		if (check_duplicates(&data) == FAILURE)
 		{
-			ft_putstr_fd("Error : there is at leats one duplicate\n", 2);
+			ft_putstr_fd("Error : there is at least one duplicate\n", 2);
 			// free(data);
 			exit(0);
 		} 

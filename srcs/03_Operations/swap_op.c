@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 12:23:44 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/16 15:23:28 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/16 15:30:01 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	swap_a(t_data *data)
 	t_list *tmp;
 	long int stocks_first_val;
 	long int stocks_second_val;
+	
 	if (data->len_a > 1)
 	{
 		// // Ex: liste de 1 3 2
@@ -36,4 +37,31 @@ void	swap_a(t_data *data)
 
 		ft_putstr_fd("sa\n", 1);
 	}
+}
+
+void	swap_b(t_data *data)
+{
+	t_list *tmp;
+	long int stocks_first_val;
+	long int stocks_second_val;
+
+	if (data->len_b > 1)
+	{
+		// // Ex: liste de 1 3 2
+		stocks_first_val = data->stack_b->number; // stock le 1
+		tmp = data->stack_b->next; // tmp pointe vers 3
+		stocks_second_val = tmp->number; // stock le 3
+		
+		data->stack_b = data->stack_b->next; // on avance dans la liste chainee de 1
+		data->stack_b->number = stocks_first_val; // 1 2
+		ft_lstadd_front(&data->stack_b, ft_lstnew(stocks_second_val)); // 3 1 2
+
+		ft_putstr_fd("sb\n", 1);
+	}
+}
+
+void swap_both(t_data *data)
+{
+	swap_a(data);
+	swap_b(data);
 }

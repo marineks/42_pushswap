@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:34:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/16 14:41:01 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/16 15:30:21 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ void	display_stack(t_data *data, char which_stack);
 
 //      03 - OPERATIONS
 void	swap_a(t_data *data);
-
+void	swap_b(t_data *data);
+void 	swap_both(t_data *data);
 #endif
