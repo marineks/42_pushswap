@@ -6,7 +6,7 @@
 #    By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 17:33:17 by msanjuan          #+#    #+#              #
-#    Updated: 2021/10/15 18:11:13 by msanjuan         ###   ########.fr        #
+#    Updated: 2021/10/16 14:03:44 by msanjuan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,11 @@ SRCS = 01_Errors/check_digit.c \
 		01_Errors/check_sorted.c \
 		02_format/format_list.c \
 		02_format/display_stack.c \
+		03_Operations/swap_op.c \
 		# 03_Operations/push_op.c \
 		# 03_Operations/reverse_op.c \
 		# 03_Operations/rotate_op.c \
-		# 03_Operations/swap_op.c \
+		
 
 OBJS = ${addprefix ${SRCS_DIR}, ${SRCS:.c=.o}}
 
