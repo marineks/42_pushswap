@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:34:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/16 15:30:21 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/19 14:58:08 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int			check_sorted(t_data *data);
 void	initialize(t_data *data);
 void	put_in_stack_a(char **argv, t_data *data);
 void	display_stack(t_data *data, char which_stack);
+void	free_everything(t_data *data);
 
 //      03 - OPERATIONS
 void	swap_a(t_data *data);

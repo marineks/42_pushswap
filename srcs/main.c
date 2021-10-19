@@ -6,11 +6,16 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 17:51:39 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/16 15:25:35 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/19 15:07:14 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushswap.h"
+
+// void f(void)
+// {
+// 	system("leaks push_swap");
+// }
 
 int main(int argc, char **argv)
 {
@@ -43,7 +48,8 @@ int main(int argc, char **argv)
 			display_stack(&data, 'A');
 			// free(data);
 		}
-		
 	}
+	free_everything(&data);
+	// atexit(f);
 	return (0);
 }

@@ -1,36 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_duplicates.c                                 :+:      :+:    :+:   */
+/*   free_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:46:15 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/19 11:45:31 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/10/19 14:29:15 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/10/19 15:06:42 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
-// #include <stdio.h>
 
-int	check_duplicates(t_data *data)
+void	free_everything(t_data *data)
 {
 	t_list *tmp;
-	t_list *tmp2;
+	t_list *tmp_b;
 
-	tmp = tmp2 = data->stack_a;
-	while (tmp != NULL)
+	if (data)
 	{
-		tmp2 = tmp;
-		tmp2 = tmp2->next;
-		while (tmp2 != NULL)
+		if (data->stack_a)
 		{
-			// printf("Num de tmp : %ld | Num de tmp2: %ld\n", tmp->number, tmp2->number);
-			if(tmp->number == tmp2->number)
-				return (FAILURE);
-			tmp2 = tmp2->next;
+			while (data->stack_a != NULL)
+			{
+				tmp = data->stack_a;
+				data->stack_a = data->stack_a->next;
+				free(tmp);
+			}
 		}
-		tmp = tmp->next;
+		if (data->stack_b)
+		{
+			while (data->stack_b != NULL)
+			{
+				tmp_b = data->stack_b;
+				data->stack_b = data->stack_b->next;
+				free(tmp_b);
+			}
+		}
+		// free(data);
 	}
-	return (SUCCESS);
+	else
+		return ;
 }
