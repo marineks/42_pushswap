@@ -6,23 +6,18 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:39:35 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 18:05:32 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/20 18:08:52 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
-void	initialize(t_data *data)
+void	initialize(t_data *data, int argc)
 {
-	// data->stack_a.number = 0;
-	// data->stack_a->next = NULL;
-	// data->stack_b.number = 0;
-	// data->stack_b->next = NULL;
 	data->stack_a = NULL;
 	data->stack_b = NULL;
-	data->len_a = 0;
+	data->len_a = argc - 1;
 	data->len_b = 0;
-	// return (data);
 }
 
 void	put_in_stack_a(char **arg, t_data *data)

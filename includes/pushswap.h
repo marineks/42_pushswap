@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:34:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/20 17:49:40 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/20 18:20:28 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int			check_duplicates(t_data *data);
 int			check_sorted(t_data *data);
 
 //      02 - FORMAT
-void	initialize(t_data *data);
+void	initialize(t_data *data, int argc);
 void	put_in_stack_a(char **argv, t_data *data);
 void	display_stack(t_data *data, char which_stack);
 void	free_everything(t_data *data);
@@ -51,6 +51,7 @@ void	rotate_a(t_data *data);
 void	rotate_b(t_data *data);
 void	rotate_both(t_data *data);
 void	reverse_a(t_data *data);
-void	reverse_b(t_data *data)
+void	reverse_b(t_data *data);
 void	reverse_both(t_data *data);
+void	push_b(t_data *data);
 #endif
