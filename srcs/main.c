@@ -6,16 +6,16 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 17:51:39 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/19 15:07:14 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/20 15:00:31 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushswap.h"
 
-// void f(void)
-// {
-// 	system("leaks push_swap");
-// }
+void f(void)
+{
+	system("leaks push_swap");
+}
 
 int main(int argc, char **argv)
 {
@@ -44,12 +44,14 @@ int main(int argc, char **argv)
 		else
 		{
 			display_stack(&data, 'A');
-			swap_a(&data);
+			// swap_a(&data); // JAI UN LEAKS DE 16 BYTEs (ROOT LEAK) QUI VIENT DE CETTE FUNC
+			rotate_a(&data);
 			display_stack(&data, 'A');
+
 			// free(data);
 		}
 	}
 	free_everything(&data);
-	// atexit(f);
+	atexit(f);
 	return (0);
 }

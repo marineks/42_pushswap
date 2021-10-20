@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 12:23:44 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/16 15:30:01 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/20 15:04:48 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,5 @@ void swap_both(t_data *data)
 {
 	swap_a(data);
 	swap_b(data);
+	ft_putstr_fd("ss\n", 1);
 }
