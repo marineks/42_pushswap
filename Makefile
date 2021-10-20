@@ -6,7 +6,7 @@
 #    By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 17:33:17 by msanjuan          #+#    #+#              #
-#    Updated: 2021/10/20 14:21:24 by msanjuan         ###   ########.fr        #
+#    Updated: 2021/10/20 17:16:52 by msanjuan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,9 @@ SRCS = 01_Errors/check_digit.c \
 		02_format/free_stacks.c \
 		03_Operations/swap_op.c \
 		03_Operations/rotate_op.c \
+		03_Operations/reverse_op.c \
 		# 03_Operations/push_op.c \
-		# 03_Operations/reverse_op.c \
+		
 		
 		
 
