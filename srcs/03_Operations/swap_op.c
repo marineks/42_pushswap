@@ -6,12 +6,11 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 12:23:44 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/20 15:04:48 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/20 15:33:44 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
-#include <stdio.h>
 /* sa : swap a - swap the first 2 elements at the top of stack a. 
 	Do nothing if there is only one or no elements).
 	sb : swap b - swap the first 2 elements at the top of stack b. 
@@ -20,20 +19,17 @@
 
 void	swap_a(t_data *data)
 {
-	t_list *tmp;
-	long int stocks_first_val;
-	long int stocks_second_val;
+	t_list *head;
+	t_list *remaining_nodes;
 	
 	if (data->len_a > 1)
 	{
-		// // Ex: liste de 1 3 2
-		stocks_first_val = data->stack_a->number; // stock le 1
-		tmp = data->stack_a->next; // tmp pointe vers 3
-		stocks_second_val = tmp->number; // stock le 3
-		
-		data->stack_a = data->stack_a->next; // on avance dans la liste chainee de 1
-		data->stack_a->number = stocks_first_val; // 1 2
-		ft_lstadd_front(&data->stack_a, ft_lstnew(stocks_second_val)); // 3 1 2
+		// EXEMPLE: Stack A => < 2 1 3 > devient < 1 2 3 >
+		head = data->stack_a; // head pointe vers le 2 (1 3)
+		data->stack_a = data->stack_a->next; // Stack A pointe vers le 1 (3)
+		remaining_nodes = data->stack_a->next; // on stock le pointeur vers le 3
+		data->stack_a->next = head; // le 1 pointe mnt vers le 2  soit [1] 2 (1 3)
+		head->next = remaining_nodes; // on raccroche le 2 au 3;
 
 		ft_putstr_fd("sa\n", 1);
 	}
@@ -41,21 +37,16 @@ void	swap_a(t_data *data)
 
 void	swap_b(t_data *data)
 {
-	t_list *tmp;
-	long int stocks_first_val;
-	long int stocks_second_val;
+	t_list *head;
+	t_list *remaining_nodes;
 
 	if (data->len_b > 1)
 	{
-		// // Ex: liste de 1 3 2
-		stocks_first_val = data->stack_b->number; // stock le 1
-		tmp = data->stack_b->next; // tmp pointe vers 3
-		stocks_second_val = tmp->number; // stock le 3
-		
-		data->stack_b = data->stack_b->next; // on avance dans la liste chainee de 1
-		data->stack_b->number = stocks_first_val; // 1 2
-		ft_lstadd_front(&data->stack_b, ft_lstnew(stocks_second_val)); // 3 1 2
-
+		head = data->stack_b;
+		data->stack_b = data->stack_b->next;
+		remaining_nodes = data->stack_b->next;
+		data->stack_b->next = head;
+		head->next = remaining_nodes;
 		ft_putstr_fd("sb\n", 1);
 	}
 }
