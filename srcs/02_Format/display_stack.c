@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 18:08:11 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/20 17:44:54 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/21 11:13:07 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	display_stack(t_data *data, char which_stack)
 	tmp = data->stack_a;
 	printf("  |====== STACK %c ======|  \n", which_stack);
 	printf("  |                     |  \n");
+	if (which_stack == 'B')
+		tmp = data->stack_b;
 	while (tmp != NULL)
 	{
 		printf("       i: %d  No: %ld    \n", i, tmp->number);
