@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 12:23:44 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/20 15:33:44 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/21 15:32:14 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	swap_a(t_data *data)
 		head->next = remaining_nodes; // on raccroche le 2 au 3;
 
 		ft_putstr_fd("sa\n", 1);
+		display_stack(data, 'A');
 	}
 }
 
@@ -48,6 +49,7 @@ void	swap_b(t_data *data)
 		data->stack_b->next = head;
 		head->next = remaining_nodes;
 		ft_putstr_fd("sb\n", 1);
+		display_stack(data, 'B');
 	}
 }
 
@@ -56,4 +58,6 @@ void swap_both(t_data *data)
 	swap_a(data);
 	swap_b(data);
 	ft_putstr_fd("ss\n", 1);
+	display_stack(data, 'A');
+	display_stack(data, 'B');
 }

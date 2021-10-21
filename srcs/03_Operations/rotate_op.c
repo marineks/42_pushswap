@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 18:35:37 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/20 15:05:17 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/21 15:31:49 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	rotate_a(t_data *data)
 		head->next = NULL;
 		
 		ft_putstr_fd("ra\n", 1);
+		display_stack(data, 'A');
 	}
 }
 
@@ -62,6 +63,7 @@ void	rotate_b(t_data *data)
 		head->next = NULL;
 		
 		ft_putstr_fd("rb\n", 1);
+		display_stack(data, 'B');
 	}
 }
 
@@ -70,4 +72,6 @@ void	rotate_both(t_data *data)
 	rotate_a(data);
 	rotate_b(data);
 	ft_putstr_fd("rr\n", 2);
+	display_stack(data, 'A');
+	display_stack(data, 'B');
 }

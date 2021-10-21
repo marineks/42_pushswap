@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:45:05 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/21 14:50:31 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/21 15:15:27 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 	< ./pushswap PLUS_GRAND_NOMBRE PETIT_NOMBRE >
 	Il suffit donc de rotate la stack pour inverser les deux nombres.
 */
+
 void	apply_2num_solver(t_data *data)
 {
 	rotate_a(data);

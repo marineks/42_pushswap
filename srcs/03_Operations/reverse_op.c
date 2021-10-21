@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 15:37:15 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/20 17:53:14 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/21 15:31:14 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	reverse_a(t_data *data)
 		data->stack_a = last; //  on raccroche le "1" à la stack A qui fait 2 3 X
 		
 		ft_putstr_fd("rra\n", 1);
+		display_stack(data, 'A');
 	}
 }
 
@@ -69,6 +70,7 @@ void	reverse_b(t_data *data)
 		data->stack_b = last; 
 		
 		ft_putstr_fd("rrb\n", 1);
+		display_stack(data, 'B');
 	}
 }
 
@@ -77,4 +79,6 @@ void reverse_both(t_data *data)
 	reverse_a(data);
 	reverse_b(data);
 	ft_putstr_fd("rrr\n", 1);
+	display_stack(data, 'A');
+	display_stack(data, 'B');
 }

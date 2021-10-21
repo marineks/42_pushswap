@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 18:04:58 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/21 12:17:35 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/21 15:30:48 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@ void	push_a(t_data *data)
 		copy->next = NULL;
 		ft_lstadd_front(&data->stack_a, copy);
 
-		ft_putstr_fd("pb\n", 1);
+		ft_putstr_fd("pa\n", 1);
 		data->len_a = ft_lstsize(data->stack_a);
 		data->len_b = ft_lstsize(data->stack_b);
+		display_stack(data, 'A');
+		display_stack(data, 'B');
 	}
 }
 
@@ -50,5 +52,7 @@ void	push_b(t_data *data)
 		ft_putstr_fd("pb\n", 1);
 		data->len_a = ft_lstsize(data->stack_a);
 		data->len_b = ft_lstsize(data->stack_b);
+		display_stack(data, 'A');
+		display_stack(data, 'B');
 	}
 }

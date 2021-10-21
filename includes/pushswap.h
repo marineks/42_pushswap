@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:34:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/21 14:48:51 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/21 15:28:20 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,12 @@ void	rotate_both(t_data *data);
 void	reverse_a(t_data *data);
 void	reverse_b(t_data *data);
 void	reverse_both(t_data *data);
+void	push_a(t_data *data);
 void	push_b(t_data *data);
 
 //		04 - ALGORITHMS
 void	apply_algorithm(int size_of_stack_a, t_data *data);
 void	apply_2num_solver(t_data *data);
+void	apply_3num_solver(t_data *data);
 
 #endif
