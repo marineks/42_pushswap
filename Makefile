@@ -6,7 +6,7 @@
 #    By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 17:33:17 by msanjuan          #+#    #+#              #
-#    Updated: 2021/10/20 18:19:34 by msanjuan         ###   ########.fr        #
+#    Updated: 2021/10/21 14:50:04 by msanjuan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,12 @@ SRCS = 01_Errors/check_digit.c \
 		03_Operations/rotate_op.c \
 		03_Operations/reverse_op.c \
 		03_Operations/push_op.c \
+		04_Algorithms/2numbers.c \
+		04_Algorithms/parsing.c \
+		# 04_Algorithms/3numbers.c \
+		# 04_Algorithms/4numbers.c \
+		# 04_Algorithms/5numbers.c \
+		# 04_Algorithms/6_and_more.c \
 		
 OBJS = ${addprefix ${SRCS_DIR}, ${SRCS:.c=.o}}
 

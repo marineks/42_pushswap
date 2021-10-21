@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 18:04:58 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/21 11:44:04 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/21 12:17:35 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ nothing if a is empty.
 
 void	push_a(t_data *data)
 {
+	t_list		*copy;
+	
 	if (data->len_b > 0)
 	{
 		copy = data->stack_b;
