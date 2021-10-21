@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 18:04:58 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/21 11:16:31 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/21 11:44:04 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,20 @@ pb : push b - take the first element at the top of a and put it at the top of b.
 nothing if a is empty.
 */
 
-// void	push_a(t_data *data)
-// {
-// 	if (data->len_b)
-// 	{
+void	push_a(t_data *data)
+{
+	if (data->len_b > 0)
+	{
+		copy = data->stack_b;
+		data->stack_b = data->stack_b->next;
+		copy->next = NULL;
+		ft_lstadd_front(&data->stack_a, copy);
 
-// 	}
-
-// }
+		ft_putstr_fd("pb\n", 1);
+		data->len_a = ft_lstsize(data->stack_a);
+		data->len_b = ft_lstsize(data->stack_b);
+	}
+}
 
 void	push_b(t_data *data)
 {
@@ -34,21 +40,13 @@ void	push_b(t_data *data)
 
 	if (data->len_a > 0)
 	{
-		// copy = data->stack_a;
-		// data->stack_a = data->stack_a->next;
-		// copy->next = NULL;
-		// ft_lstadd_front(&data->stack_b, copy);
-
 		copy = data->stack_a;
 		data->stack_a = data->stack_a->next; // Q à poser à Tiff: pourquoi l'ordre compte ici?
 		copy->next = NULL;
 		ft_lstadd_front(&data->stack_b, copy);
 
-		
-
 		ft_putstr_fd("pb\n", 1);
 		data->len_a = ft_lstsize(data->stack_a);
 		data->len_b = ft_lstsize(data->stack_b);
 	}
-
 }
