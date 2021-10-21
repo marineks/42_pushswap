@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:15:44 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/21 17:14:19 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/21 17:50:21 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,28 +30,45 @@ void	apply_3num_solver(t_data *data)
 	second_elt = first_elt->next;
 	third_elt = second_elt->next;
 	
-	// Le hardcode des enfers
-	if (first_elt->number < second_elt->number)
+	// Facon de faire avec un peu plus de réflexion, mais par contre plus de coups
+	while (check_sorted(data) == FAILURE)
 	{
-		if (first_elt->number < third_elt->number)
+		if (first_elt->number < second_elt->number)
 		{
 			push_b(data);
 			rotate_a(data);
 			push_a(data);
 		}
-		else
-			reverse_a(data);
-	}
-	else if (first_elt->number > second_elt->number)
-	{
-		if (first_elt->number < third_elt->number)
+		if (first_elt->number > second_elt->number)
 			swap_a(data);
-		else
-			rotate_a(data);
-	}
-	else
-	{
-		swap_a(data);
-		reverse_a(data);
+		first_elt = data->stack_a;
+		second_elt = first_elt->next;
+		third_elt = second_elt->next;
 	}
 }
+
+
+	// Le hardcode des enfers
+	// if (first_elt->number < second_elt->number)
+	// {
+	// 	if (first_elt->number < third_elt->number)
+	// 	{
+	// 		push_b(data);
+	// 		rotate_a(data);
+	// 		push_a(data);
+	// 	}
+	// 	else
+	// 		reverse_a(data);
+	// }
+	// else if (first_elt->number > second_elt->number)
+	// {
+	// 	if (first_elt->number < third_elt->number)
+	// 		swap_a(data);
+	// 	else
+	// 		rotate_a(data);
+	// }
+	// else
+	// {
+	// 	swap_a(data);
+	// 	reverse_a(data);
+	// }
