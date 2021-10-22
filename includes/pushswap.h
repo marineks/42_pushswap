@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:34:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/22 17:27:33 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/22 17:46:44 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void	apply_algorithm(int size_of_stack_a, t_data *data);
 void	apply_2num_solver(t_data *data);
 void	apply_3num_solver(t_data *data);
 void	apply_4num_solver(t_data *data);
-int		is_lowest_number(long int compared, long int el2, long int el3, long int el4);
 
+//		05 - UTILS
+int		is_lowest(long int compared, long int el2, long int el3, long int el4);
+void	isolate_lowest_el(t_data *data);
 #endif

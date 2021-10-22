@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_sorted.c                                     :+:      :+:    :+:   */
+/*   find_lowest.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/11 17:46:24 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/22 17:53:57 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/10/22 17:40:28 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/10/22 17:46:53 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
-int	check_sorted(t_data *data)
+int		is_lowest(long int compared, long int el2, long int el3, long int el4)
 {
-	t_list *copy;
-	t_list *one_step_further;
-
-	copy = data->stack_a;
-	one_step_further = copy->next;
-	while (one_step_further != NULL)
-	{
-		if (copy->number > one_step_further->number)
-			return (FAILURE);
-		copy = copy->next;
-		one_step_further = copy->next;
-	}
-	return (SUCCESS);
+	if (compared < el2 && compared < el3 && compared < el4)
+		return (SUCCESS);
+	else
+		return (FAILURE);
 }
