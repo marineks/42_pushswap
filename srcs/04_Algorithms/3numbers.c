@@ -6,11 +6,20 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:15:44 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/22 14:05:43 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/22 14:34:18 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
+
+/*
+	Le principe ici est de mettre le plus grand nombre en bout de liste.
+	Exemple: ./push_swap 2 3 1
+	Ici, on va utiliser un RRA pour décaler le 3.
+	Exemple: ./push_swap 2 1 3
+	Lorsque le plus grand nombre est "au fond" il suffit juste de faire un swap SA
+	Exemple: ./push_swap 1 2 3
+*/
 
 void	apply_3num_solver(t_data *data)
 {
@@ -23,7 +32,7 @@ void	apply_3num_solver(t_data *data)
 	second_elt = first_elt->next;
 	third_elt = second_elt->next;
 	
-	// Algo qui ne met que 3 coups max
+	// Mon algo qui ne met que 3 coups max
 	while (check_sorted(data) == FAILURE)
 	{
 		if (third_elt->number > first_elt->number 
