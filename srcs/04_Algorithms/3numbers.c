@@ -6,18 +6,11 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:15:44 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/21 17:50:21 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/22 14:05:43 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
-
-/* 
-	Par principe, vu que l'on teste en amont si la string est déjà ordonnée
-	Cela veut dire que la stack se présente actuellement sous cette forme:
-	< ./pushswap PLUS_GRAND_NOMBRE PETIT_NOMBRE >
-	Il suffit donc de rotate la stack pour inverser les deux nombres.
-*/
 
 void	apply_3num_solver(t_data *data)
 {
@@ -30,17 +23,14 @@ void	apply_3num_solver(t_data *data)
 	second_elt = first_elt->next;
 	third_elt = second_elt->next;
 	
-	// Facon de faire avec un peu plus de réflexion, mais par contre plus de coups
+	// Algo qui ne met que 3 coups max
 	while (check_sorted(data) == FAILURE)
 	{
-		if (first_elt->number < second_elt->number)
-		{
-			push_b(data);
-			rotate_a(data);
-			push_a(data);
-		}
-		if (first_elt->number > second_elt->number)
+		if (third_elt->number > first_elt->number 
+			&& third_elt->number > second_elt->number)
 			swap_a(data);
+		else 
+			reverse_a(data);
 		first_elt = data->stack_a;
 		second_elt = first_elt->next;
 		third_elt = second_elt->next;
@@ -71,4 +61,20 @@ void	apply_3num_solver(t_data *data)
 	// {
 	// 	swap_a(data);
 	// 	reverse_a(data);
+	// }
+
+	// Facon de faire avec un peu plus de réflexion, mais par contre plus de coups
+	// while (check_sorted(data) == FAILURE)
+	// {
+	// 	if (first_elt->number < second_elt->number)
+	// 	{
+	// 		push_b(data);
+	// 		rotate_a(data);
+	// 		push_a(data);
+	// 	}
+	// 	if (first_elt->number > second_elt->number)
+	// 		swap_a(data);
+	// 	first_elt = data->stack_a;
+	// 	second_elt = first_elt->next;
+	// 	third_elt = second_elt->next;
 	// }
