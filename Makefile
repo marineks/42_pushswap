@@ -6,7 +6,7 @@
 #    By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 17:33:17 by msanjuan          #+#    #+#              #
-#    Updated: 2021/10/21 15:27:58 by msanjuan         ###   ########.fr        #
+#    Updated: 2021/10/22 14:44:43 by msanjuan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS = 01_Errors/check_digit.c \
 		04_Algorithms/2numbers.c \
 		04_Algorithms/parsing.c \
 		04_Algorithms/3numbers.c \
-		# 04_Algorithms/4numbers.c \
+		04_Algorithms/4numbers.c \
 		# 04_Algorithms/5numbers.c \
 		# 04_Algorithms/6_and_more.c \
 		

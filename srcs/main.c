@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 17:51:39 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/22 14:29:37 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/22 17:08:21 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int main(int argc, char **argv)
 		{
 			display_stack(&data, 'A');
 			apply_algorithm(argc - 1, &data);
+			display_stack(&data, 'A');
+			display_stack(&data, 'B');
 		}
 	}
 	free_everything(&data);
