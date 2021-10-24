@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 17:40:37 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/22 17:48:13 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/24 13:36:15 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,13 @@ void	isolate_lowest_el(t_data *data)
 	third = second->next;
 	fourth = third->next;
 
-	if (is_lowest(second->number, first->number, third->number,
-		fourth->number) == SUCCESS)
+	if (is_lowest(data, first->number) == SUCCESS)
+		return ; // on ne fait rien car le premier elt est deja bien place pour etre isole
+	if (is_lowest(data, second->number) == SUCCESS)
 			swap_a(data);
-	else if (is_lowest(third->number, second->number, first->number,
-		fourth->number) == SUCCESS 
-		|| is_lowest(fourth->number, first->number, third->number,
-		second->number) == SUCCESS)
+	else
 	{
-		while (is_lowest(first->number, fourth->number, third->number,
-		second->number) == FAILURE)
+		while (is_lowest(data, first->number) == FAILURE)
 		{
 			reverse_a(data);
 			first = data->stack_a;
@@ -44,3 +41,6 @@ void	isolate_lowest_el(t_data *data)
 		}
 	}
 }
+
+// Notes : trouver le moyen d'automatiser cette function car la elle n'est codée 
+// que pour des listes de 4 nodes

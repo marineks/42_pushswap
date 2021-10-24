@@ -6,7 +6,7 @@
 #    By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 17:33:17 by msanjuan          #+#    #+#              #
-#    Updated: 2021/10/22 17:50:36 by msanjuan         ###   ########.fr        #
+#    Updated: 2021/10/22 18:57:42 by msanjuan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,12 @@ SRCS = 01_Errors/check_digit.c \
 		05_Utils/isolate_lowest.c \
 		# 04_Algorithms/5numbers.c \
 		# 04_Algorithms/6_and_more.c \
-		
+
 OBJS = ${addprefix ${SRCS_DIR}, ${SRCS:.c=.o}}
+# OBJ_DIR = ./obj
+# OBJS =  ${SRCS:.c=$(OBJDIR)/%.o}
+# OBJS = ${SRCS:${SRCS_DIR}/%.c=$(OBJDIR)/%.o}
+# OBJS = $(patsubst %.c,$(OBJDIR)/%.o,$(SRCS))
 
 # /* ~~~~~~~ INCLUDING LIBFT ~~~~~~~ */
 LIBFT_DIR = libft
@@ -41,7 +45,7 @@ LIBFT_PATH = ${LIBFT_DIR}/libft.a
 
 # /* ~~~~~~~ COMPILING INFO ~~~~~~~ */
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra 
+CFLAGS = -Wall -Werror -Wextra #-MMD
 IFLAGS:= -I ./includes
 LFLAGS:= -L $(LIBFT_DIR) -lft
 
@@ -58,10 +62,9 @@ CYAN:="\033[1;36m"
 WHITE:="\033[1;37m"
 EOC:="\033[0;0m"
 
-# .c.o:
-# 		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}	
+# vpath %.c ${addprefix ${SRCS_DIR}, 01_Errors/, 02_format/, 03_Operations/, 04_Algorithms/, 05_Utils/}
 
-all:	${NAME}
+all:	${NAME}		
 
 $(NAME): $(OBJS)
 	@cd $(LIBFT_DIR) && $(MAKE)
@@ -69,9 +72,16 @@ $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) $(SRCS_DIR)main.c $(IFLAGS) $(LFLAGS) -o $(NAME)
 	@echo $(GREEN) "[OK COMPILED]" $(EOC)
 
+# ${OBJ_DIR}/%.o:%.c | ${OBJ_DIR}
+# 	$(CC) $(CFLAGS) -c $< -o $@
+
+# $(OBJ_DIR):
+# 			@mkdir -p $@
+
 clean:
 		@echo $(PURPLE) "[🧹Cleaning...🧹]" $(EOC)
-		@${RM} ${OBJS} 
+		@${RM} ${OBJS}
+		@${RM} -r ${OBJ_DIR} 
 		@make -C ${LIBFT_DIR} -f ${LIBFT_MAKE} clean
 
 fclean: clean

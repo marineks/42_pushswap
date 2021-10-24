@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:34:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/22 17:46:44 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/24 13:37:14 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	apply_3num_solver(t_data *data);
 void	apply_4num_solver(t_data *data);
 
 //		05 - UTILS
-int		is_lowest(long int compared, long int el2, long int el3, long int el4);
+// int		is_lowest(long int compared, long int el2, long int el3, long int el4);
 void	isolate_lowest_el(t_data *data);
+int		is_lowest(t_data *data, long int compared);
 #endif
