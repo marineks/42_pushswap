@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:24:30 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/22 14:42:45 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/24 13:56:11 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	apply_algorithm(int size_of_stack_a, t_data *data)
 		apply_3num_solver(data);
 	else if (size_of_stack_a == 4)
 		apply_4num_solver(data);
-	// else if (size_of_stack_a == 5)
-	// 	apply_5num_solver(data);
+	else if (size_of_stack_a == 5)
+		apply_5num_solver(data);
 	// else
 	// 	apply_big_num_solver(data);
 }

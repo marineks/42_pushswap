@@ -6,7 +6,7 @@
 #    By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 17:33:17 by msanjuan          #+#    #+#              #
-#    Updated: 2021/10/22 18:57:42 by msanjuan         ###   ########.fr        #
+#    Updated: 2021/10/24 13:54:29 by msanjuan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,9 +27,10 @@ SRCS = 01_Errors/check_digit.c \
 		04_Algorithms/parsing.c \
 		04_Algorithms/3numbers.c \
 		04_Algorithms/4numbers.c \
+		04_Algorithms/5numbers.c \
 		05_Utils/find_lowest.c \
 		05_Utils/isolate_lowest.c \
-		# 04_Algorithms/5numbers.c \
+		
 		# 04_Algorithms/6_and_more.c \
 
 OBJS = ${addprefix ${SRCS_DIR}, ${SRCS:.c=.o}}

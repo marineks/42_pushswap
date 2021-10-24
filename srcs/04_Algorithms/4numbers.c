@@ -6,12 +6,11 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 14:42:16 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/22 17:51:13 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/24 13:42:15 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
-
 
 void	apply_4num_solver(t_data *data)
 {
@@ -26,7 +25,7 @@ void	apply_4num_solver(t_data *data)
 	third = second->next;
 	fourth = third->next;
 	
-	// Mon algo qui ne met que 5-6 coups max
+	// Mon algo qui ne met que 6 coups max // edit pour 2 3 1 4 il met 7 coups
 	while (check_sorted(data) == FAILURE)
 	{
 		isolate_lowest_el(data);
