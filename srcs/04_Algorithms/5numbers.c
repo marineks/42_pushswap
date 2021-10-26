@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 12:59:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/24 14:00:57 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/26 14:24:22 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,12 @@ void	apply_5num_solver(t_data *data)
 	fourth = third->next;
 	fifth = fourth->next;
 	
-	// Mon algo qui ne met entre 7 et 10 coups max
+	// MOINS DE 12 COUPS - Mon algo ne met entre 7 et 10 coups max 
+	/*
+		 9 pour  3 5 1 4 2 // 10 pour 4 2 1 3 5 // 11 pour 2 5 1 4 3
+		Piste pour optimiser : le pb c'est quand le 1 est au milieu, ca coute 3 RRA
+	   de l'isoler => il vaut mieux 2 RA ?
+	*/
 	while (check_sorted(data) == FAILURE)
 	{
 		isolate_lowest_el(data);

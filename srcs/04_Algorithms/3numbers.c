@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:15:44 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/22 14:34:18 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/10/26 14:11:33 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,16 @@ void	apply_3num_solver(t_data *data)
 	second_elt = first_elt->next;
 	third_elt = second_elt->next;
 	
-	// Mon algo qui ne met que 3 coups max
+	// Mon algo qui ne met que 2 coups max
 	while (check_sorted(data) == FAILURE)
 	{
 		if (third_elt->number > first_elt->number 
 			&& third_elt->number > second_elt->number)
 			swap_a(data);
-		else 
+		else if (first_elt->number > third_elt->number 
+			&& first_elt->number > second_elt->number)
+			rotate_a(data);
+		else
 			reverse_a(data);
 		first_elt = data->stack_a;
 		second_elt = first_elt->next;
