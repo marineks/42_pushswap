@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 14:26:24 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/28 17:49:03 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/02 14:53:28 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,31 +22,88 @@
 	trier récursivement les deux parties et fusionner les deux stacks.
 */
 
-long int find_lowest(t_data *data)
+int find_lowest(t_data *data)
 {
 	t_list 		*tmp;
-	long int	lowest;
+	int	lowest;
 	
 	tmp = data->stack_a;
-	lowest = tmp->number;
-	printf("Lowest de début: %lu\n", lowest);
+	lowest = data->stack_a->number;
+	// printf("Lowest de début: %d\n", lowest);
 	while (tmp != NULL)
 	{
-		if (tmp->number < lowest)
+		if (lowest > tmp->number)
 			lowest = tmp->number;
 		tmp = tmp->next;
 	}
-	printf("Lowest de fin: %lu\n", lowest);
+	// printf("Lowest de fin: %d\n", lowest);
 	return (lowest);
 }
 
 int find_avg_index(t_data *data)
 {
+	data->len_a = ft_lstsize(data->stack_a);
 	return (data->len_a/2);
+}
+
+int find_index(t_data *data, long int element)
+{
+	t_list	*tmp;
+	int 	i;
+
+	tmp = data->stack_a;
+	i = 1;
+	while (tmp != NULL)
+	{
+		if (element == tmp->number)
+			break;
+		tmp = tmp->next;
+		i++;
+	}
+	// printf("i %d:\n", i);
+	return (i);
 }
 
 void apply_big_num_solver(t_data *data)
 {
-	printf("Find avg indx : %i\n", find_avg_index(data));
-	find_lowest(data);
+	t_list *tmp;
+	long int first_el;
+
+	tmp = data->stack_a;
+	first_el = tmp->number;
+	while (check_sorted(data) == FAILURE)
+	{
+		if (find_index(data, find_lowest(data)) > find_avg_index(data))
+		{
+			while (is_lowest(data, first_el) == FAILURE)
+			{
+				reverse_a(data);
+				tmp = data->stack_a;
+				first_el = tmp->number;
+			}
+			push_b(data);
+		} 
+		else
+		{
+			while (is_lowest(data, first_el) == FAILURE)
+			{
+				rotate_a(data);
+				tmp = data->stack_a;
+				first_el = tmp->number;
+			}
+			push_b(data);
+		}
+		if (data->len_a == 5)
+		{
+			apply_algorithm(data->len_a, data);
+			push_a(data);
+			if (check_sorted(data) == FAILURE)
+				swap_a(data);
+			while (data->len_b > 0)
+				push_a(data);
+		}	
+		tmp = data->stack_a;
+		first_el = tmp->number;
+	}
 }
+
