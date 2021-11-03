@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 14:26:24 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/02 14:53:28 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/02 16:29:18 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,16 +64,14 @@ int find_index(t_data *data, long int element)
 	return (i);
 }
 
-void apply_big_num_solver(t_data *data)
+void	isolate_smallest(t_data *data)
 {
 	t_list *tmp;
 	long int first_el;
-
+	
 	tmp = data->stack_a;
 	first_el = tmp->number;
-	while (check_sorted(data) == FAILURE)
-	{
-		if (find_index(data, find_lowest(data)) > find_avg_index(data))
+	if (find_index(data, find_lowest(data)) > find_avg_index(data))
 		{
 			while (is_lowest(data, first_el) == FAILURE)
 			{
@@ -93,6 +91,18 @@ void apply_big_num_solver(t_data *data)
 			}
 			push_b(data);
 		}
+}
+
+void apply_big_num_solver(t_data *data)
+{
+	t_list *tmp;
+	long int first_el;
+
+	tmp = data->stack_a;
+	first_el = tmp->number;
+	while (check_sorted(data) == FAILURE)
+	{
+		isolate_smallest(data);
 		if (data->len_a == 5)
 		{
 			apply_algorithm(data->len_a, data);

@@ -6,7 +6,7 @@
 #    By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 15:53:49 by msanjuan          #+#    #+#              #
-#    Updated: 2021/10/14 17:57:23 by msanjuan         ###   ########.fr        #
+#    Updated: 2021/11/02 17:56:27 by msanjuan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -104,4 +104,4 @@ fclean: clean
 
 re: 	fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

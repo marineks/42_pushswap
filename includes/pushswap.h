@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:34:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/02 14:15:10 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/02 17:37:16 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,5 @@ int		is_lowest(t_data *data, long int compared);
 int		find_lowest(t_data *data);
 int		find_avg_index(t_data *data);
 int		find_index(t_data *data, long int element);
+void	isolate_smallest(t_data *data);
 #endif
