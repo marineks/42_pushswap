@@ -13,13 +13,6 @@
 #include "../../includes/pushswap.h"
 #include <stdio.h>
 /*
-	Idéalement, j'aimerais profiter de cet exercice pour connaitre les plus
-	grands théorèmes d'algo de tri.
-	Pour le moment, j'ai jeté mon dévolu sur le Tri Fusion (Merge Sort) 
-	car c'est celui qui a la complexité temporelle la plus optimale. 
-	De plus il utilise la récursivité.
-	Principe du tri fusion: séparer la stack A en deux parts égales;
-	trier récursivement les deux parties et fusionner les deux stacks.
 */
 
 int find_lowest(t_data *data)
@@ -95,11 +88,6 @@ void	isolate_smallest(t_data *data)
 
 void apply_big_num_solver(t_data *data)
 {
-	t_list *tmp;
-	long int first_el;
-
-	tmp = data->stack_a;
-	first_el = tmp->number;
 	while (check_sorted(data) == FAILURE)
 	{
 		isolate_smallest(data);
@@ -112,8 +100,6 @@ void apply_big_num_solver(t_data *data)
 			while (data->len_b > 0)
 				push_a(data);
 		}	
-		tmp = data->stack_a;
-		first_el = tmp->number;
 	}
 }
 

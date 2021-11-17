@@ -23,8 +23,6 @@ int main(int argc, char **argv)
 	
 	if (argc == 1)
 		exit(0);
-	if (argc > 2 && argc < 3)
-		ft_putstr_fd("Error\n", 2);
 	else
 	{            
 		initialize(&data, argc);

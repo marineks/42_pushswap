@@ -16,9 +16,9 @@ SRCS = 01_Errors/check_digit.c \
 		01_Errors/check_duplicates.c \
 		01_Errors/check_int_size.c \
 		01_Errors/check_sorted.c \
-		02_format/format_list.c \
-		02_format/display_stack.c \
-		02_format/free_stacks.c \
+		02_Format/format_list.c \
+		02_Format/display_stack.c \
+		02_Format/free_stacks.c \
 		03_Operations/swap_op.c \
 		03_Operations/rotate_op.c \
 		03_Operations/reverse_op.c \
@@ -45,7 +45,7 @@ LIBFT_MAKE = Makefile
 LIBFT_PATH = ${LIBFT_DIR}/libft.a
 
 # /* ~~~~~~~ COMPILING INFO ~~~~~~~ */
-CC = gcc
+CC = clang
 CFLAGS = -Wall -Werror -Wextra #-MMD
 IFLAGS:= -I ./includes
 LFLAGS:= -L $(LIBFT_DIR) -lft

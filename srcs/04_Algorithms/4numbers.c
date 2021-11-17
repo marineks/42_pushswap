@@ -12,30 +12,14 @@
 
 #include "../../includes/pushswap.h"
 
+// Mon algo qui ne met que 5 coups max
 void	apply_4num_solver(t_data *data)
 {
-	t_list *first; 
-	t_list *second;
-	t_list *third;
-	t_list *fourth;
-
-	// On assigne chaque node de la stack de size 4 à sa propre copie
-	first = data->stack_a;
-	second = first->next;
-	third = second->next;
-	fourth = third->next;
-	
-	// Mon algo qui ne met que 5 coups max
 	while (check_sorted(data) == FAILURE)
 	{
 		isolate_lowest_el(data);
 		push_b(data);
 		apply_3num_solver(data);
 		push_a(data);
-
-		first = data->stack_a;
-		second = first->next;
-		third = second->next;
-		fourth = third->next;
 	}
 }
