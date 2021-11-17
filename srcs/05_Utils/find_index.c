@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_lowest.c                                      :+:      :+:    :+:   */
+/*   find_index.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/22 17:40:28 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/24 13:43:39 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/11/17 18:12:25 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/11/17 18:12:29 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
+#include <stdio.h>
+/*
+*/
 
-int		is_lowest(t_data *data, long int compared)
+int find_avg_index(t_data *data)
 {
-	t_list *tmp;
+	data->len_a = ft_lstsize(data->stack_a);
+	return (data->len_a/2);
+}
+
+int find_index(t_data *data, long int element)
+{
+	t_list	*tmp;
+	int 	i;
 
 	tmp = data->stack_a;
-
+	i = 1;
 	while (tmp != NULL)
 	{
-		if (compared > tmp->number) // on s'en moque s'il croise son dupe car ce sera == et non >
-			return (FAILURE);
+		if (element == tmp->number)
+			break;
 		tmp = tmp->next;
+		i++;
 	}
-	return (SUCCESS);
+	// printf("i %d:\n", i);
+	return (i);
 }

@@ -1,42 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isolate_lowest.c                                   :+:      :+:    :+:   */
+/*   find_min.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/22 17:40:37 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/17 18:19:46 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/11/17 18:09:04 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/11/17 18:11:31 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
+#include <stdio.h>
+/*
+*/
 
-
-void	isolate_smallest(t_data *data)
+int find_lowest(t_data *data)
 {
-	t_list *tmp;
-	long int first_el;
+	t_list 		*tmp;
+	int	lowest;
 	
 	tmp = data->stack_a;
-	first_el = tmp->number;
-	if (find_index(data, find_lowest(data)) > find_avg_index(data))
+	lowest = data->stack_a->number;
+	while (tmp != NULL)
 	{
-		while (is_lowest(data, first_el) == FAILURE)
-		{
-			reverse_a(data);
-			tmp = data->stack_a;
-			first_el = tmp->number;
-		}
-	} 
-	else
-	{
-		while (is_lowest(data, first_el) == FAILURE)
-		{
-			rotate_a(data);
-			tmp = data->stack_a;
-			first_el = tmp->number;
-		}
+		if (lowest > tmp->number)
+			lowest = tmp->number;
+		tmp = tmp->next;
 	}
-	push_b(data);
+	return (lowest);
 }
