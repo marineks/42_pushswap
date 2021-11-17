@@ -65,7 +65,6 @@ void	apply_5num_solver(t_data *data);
 void	apply_big_num_solver(t_data *data);
 
 //		05 - UTILS
-void	isolate_lowest_el(t_data *data);
 int		is_lowest(t_data *data, long int compared);
 int		find_lowest(t_data *data);
 int		find_avg_index(t_data *data);

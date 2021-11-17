@@ -12,14 +12,9 @@
 
 #include "../includes/pushswap.h"
 
-// void f(void)
-// {
-// 	system("leaks push_swap");
-// }
-
 int main(int argc, char **argv)
 {
-	t_data data; // data = malloc(sizeof(*t_data));     
+	t_data data;   
 	
 	if (argc == 1)
 		exit(0);
@@ -30,14 +25,8 @@ int main(int argc, char **argv)
 		if (check_duplicates(&data) == FAILURE)
 			ft_putstr_fd("Error\n", 2);
 		else if (check_sorted(&data) == FAILURE)
-		{
-			// display_stack(&data, 'A');
 			apply_algorithm(argc - 1, &data);
-			// display_stack(&data, 'A');
-			// display_stack(&data, 'B');
-		}
 	}
 	free_everything(&data);
-	// atexit(f);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 12:59:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/02 17:38:45 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/17 18:13:21 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ void	apply_5num_solver(t_data *data)
 {
 	while (check_sorted(data) == FAILURE)
 	{
-		isolate_lowest_el(data);
-		push_b(data);
+		isolate_smallest(data);
 		apply_4num_solver(data);
 		push_a(data);
 	}

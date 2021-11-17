@@ -29,7 +29,7 @@ SRCS = 01_Errors/check_digit.c \
 		04_Algorithms/4numbers.c \
 		04_Algorithms/5numbers.c \
 		04_Algorithms/6_and_more.c \
-		05_Utils/find_lowest.c \
+		05_Utils/find_min.c \
 		05_Utils/isolate_lowest.c \
 		
 
