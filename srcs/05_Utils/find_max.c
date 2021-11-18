@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   6_and_more.c                                       :+:      :+:    :+:   */
+/*   find_max.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/26 14:26:24 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/18 14:38:19 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/11/18 14:06:54 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/11/18 14:12:43 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
-#include <stdio.h>
 /*
 */
 
-
-
-
-
-void apply_big_num_solver(t_data *data)
+int find_max(t_data *data)
 {
-	find_mediane(data);
-	// while (check_sorted(data) == FAILURE)
-	// {
-	// 	isolate_smallest(data);
-	// 	if (data->len_a == 5)
-	// 	{
-	// 		apply_algorithm(data->len_a, data);
-	// 		push_a(data);
-	// 		if (check_sorted(data) == FAILURE)
-	// 			swap_a(data);
-	// 		while (data->len_b > 0)
-	// 			push_a(data);
-	// 	}	
-	// }
+	t_list 		*tmp;
+	int	max;
+	
+	tmp = data->stack_a;
+	max = data->stack_a->number;
+	while (tmp != NULL)
+	{
+		if (max < tmp->number)
+			max = tmp->number;
+		tmp = tmp->next;
+	}
+	return (max);
 }
-
-
