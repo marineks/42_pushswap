@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 14:26:24 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/18 14:38:19 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/18 18:21:51 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@
 */
 
 
-
-
-
 void apply_big_num_solver(t_data *data)
 {
-	find_mediane(data);
-	// while (check_sorted(data) == FAILURE)
+	sort_stack_a(data->stack_a, find_lowest(data->stack_a), find_max(data))
+}
+
+
+// PREMIERE VERSION DU SCHLAG
+// while (check_sorted(data) == FAILURE)
 	// {
 	// 	isolate_smallest(data);
 	// 	if (data->len_a == 5)
@@ -35,6 +36,3 @@ void apply_big_num_solver(t_data *data)
 	// 			push_a(data);
 	// 	}	
 	// }
-}
-
-

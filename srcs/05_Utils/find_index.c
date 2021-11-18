@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 18:12:25 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/17 18:12:29 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/18 18:18:08 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ int find_avg_index(t_data *data)
 	return (data->len_a/2);
 }
 
-int find_index(t_data *data, long int element)
+int find_index(t_list *stack, long int element)
 {
 	t_list	*tmp;
 	int 	i;
 
-	tmp = data->stack_a;
+	tmp = stack;
 	i = 1;
 	while (tmp != NULL)
 	{
