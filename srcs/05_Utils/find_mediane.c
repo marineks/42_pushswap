@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 14:08:21 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/18 17:15:21 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/18 18:42:48 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,17 @@ t_list *sort_copy(t_list *stack)
     return (head);
 }
 
-int find_mediane(t_data *data)
+long int find_mediane(t_list *stack)
 {
 	t_list 		*tmp;
     t_list      *copie;
-	int	mediane;
+	long int	mediane;
     int mediane_rank;
     int i;
 	
-	tmp = data->stack_a;
+	tmp = stack;
     copie = sort_copy(tmp);
-    mediane_rank = (ft_lstsize(data->stack_a) + 1)/2;
+    mediane_rank = (ft_lstsize(stack) + 1)/2;
     i = 1;
 
     while (i < mediane_rank)

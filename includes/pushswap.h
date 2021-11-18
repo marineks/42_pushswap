@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:34:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/18 18:19:15 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/18 18:36:48 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int		find_lowest(t_list *stack);
 int		find_max(t_list *stack);
 int		find_avg_index(t_data *data);
 int		find_index(t_list *stack, long int element);
-int		find_mediane(t_data *data);
+long int		find_mediane(t_list *stack_a);
 void	isolate_smallest(t_data *data);
 t_list	*sort_copy(t_list *stack);
 #endif
