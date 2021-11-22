@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 14:08:21 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/18 18:42:48 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/22 14:06:23 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,54 +21,67 @@
     La médiane est la valeur trouvée à cet index
 */
 
-t_list *sort_copy(t_list *stack)
+// t_list *copyList(t_list *stack)
+// {
+//     t_list *copy;
+
+//     while (stack != NULL)
+//     {
+//         ft_lstadd_back(&copy, ft_lstnew(stack->number));
+//         stack = stack->next;
+//     }
+//     return (copy);
+// }
+
+void    sort_copy(t_list *stack)
 {
     t_list      *one_step_further;
     t_list      *head;
 	int	temp;
 
-	head = stack;
-    one_step_further = stack->next;
-    while (stack != NULL)
+    head = stack;
+    one_step_further = head->next;
+    while (head != NULL)
     {
-        one_step_further = stack->next;
+        one_step_further = head->next;
     
         while (one_step_further != NULL)
         {
-            if (stack->number > one_step_further->number)
+            if (head->number > one_step_further->number)
             {
-                temp = stack->number;
-                stack->number = one_step_further->number;
+                temp = head->number;
+                head->number = one_step_further->number;
                 one_step_further->number = temp;
             }
             one_step_further = one_step_further->next;
         } 
-        stack = stack->next;
+        head = head->next;
     }
-    return (head);
 }
 
-long int find_mediane(t_list *stack)
-{
-	t_list 		*tmp;
-    t_list      *copie;
-	long int	mediane;
-    int mediane_rank;
-    int i;
+// long int find_mediane(t_list *stack)
+// {
+// 	t_list 		*tmp;
+//     t_list      *copie;
+// 	long int	mediane;
+//     int         mediane_rank;
+//     int         i;
 	
-	tmp = stack;
-    copie = sort_copy(tmp);
-    mediane_rank = (ft_lstsize(stack) + 1)/2;
-    i = 1;
+// 	tmp = stack;
+//     // printf("test\n");
+//     copie = sort_copy(tmp);
+//     mediane_rank = (ft_lstsize(stack) + 1)/2;
+//     i = 1;
 
-    while (i < mediane_rank)
-    {
-        tmp = tmp->next;
-        i++;
-    }
-    mediane = tmp->number;
-	return (mediane);
-}
+//     while (i < mediane_rank)
+//     {
+//         copie = copie->next;
+//         i++;
+//     }
+//     mediane = copie->number;
+//     printf("Médiane: %ld\n", mediane);
+// 	return (mediane);
+// }
 
 // TESTS FAITS
 /*

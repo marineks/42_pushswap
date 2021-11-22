@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:39:35 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/24 13:49:08 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/22 13:32:37 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	put_in_stack_a(char **arg, t_data *data)
 		{
 			nb = ft_atol(arg[i]);
 			ft_lstadd_back(&data->stack_a, ft_lstnew(nb));
+			ft_lstadd_back(&data->copy_stack_a, ft_lstnew(nb));
 		}
 		else
 		{
