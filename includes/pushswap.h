@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:34:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/22 14:49:17 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/22 15:23:54 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # define SUCCESS 0
 # define FAILURE -1
+# define COPY data->copy_stack_a
+# define STACK_A data->stack_a
+# define STACK_B data->stack_b
 # define QUARTER data->quarter
 # define MEDIANE data->mediane
 # define THREE_QUARTERS data->three_quarters
