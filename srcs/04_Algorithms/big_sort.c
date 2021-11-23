@@ -6,25 +6,24 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 13:30:30 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/22 15:19:41 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/23 20:17:54 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 #include <stdio.h>
 
-// CREER UNE COPIE DE STACK A ET LA TRIER : v
-
-int find_value(t_list *stack, int which_rank)
+// Selon la valeur Rank envoyée en argument, trouve le nb pour 1/4 1/2 3/4.
+int		find_value(t_list *stack, int which_rank)
 {
 	t_list 		*tmp;
     int         searched_value;
     int         i;
 	
 	tmp = stack;
-    i = 0;
+    i = 1;
 
-    while (i < which_rank)
+    while (i <= which_rank)
     {
         tmp = tmp->next;
         i++;
@@ -33,57 +32,82 @@ int find_value(t_list *stack, int which_rank)
 	return (searched_value);
 }
 
-int contains_els_below(t_data *data, int limit)
+// Vérifie si la stack A contient toujrs des élts en dessous ou égal à la limite
+int		contains_els_below(t_data *data, int limit)
 {
 	t_list *tmp;
 
 	tmp = data->stack_a;
 	while (tmp != NULL)
 	{
-		if (tmp->number <= limit) // Dés qu'on trouve un nb en dessous ou égal à la limite c'est bon
+		if (tmp->number <= limit) 
 			return (SUCCESS);
 		tmp = tmp->next;
 	}
 	return (FAILURE);
 }
 
-void apply_big_num_solver(t_data *data)
+// Vérifie si l'elt en argument est bien tout en haut de la stack
+int	is_on_top_of_stack(t_data *data, int element)
 {
+    t_list *tmp;
+
+    // printf("n'est pas en haut de la stack : \n");
+    tmp = STACK_A;
+    if (tmp->number == element)
+        return (SUCCESS);
+    else
+        return (FAILURE);
+}	
+
+void	apply_big_num_solver(t_data *data)
+{
+
+    t_list *tmp;
+    t_list * last;
+
+    tmp = STACK_A;
+    last = ft_lstlast(STACK_A);
     // TRIE LA COPIE DE STACK A
-    sort_copy(data->copy_stack_a);
+    sort_copy(COPY);
 
     // TROUVER LES VALEURS POUR MES QUARTILES ET MEDIANE
-    QUARTER = find_value(data->copy_stack_a, (ft_lstsize(data->copy_stack_a)/4));
-	MEDIANE = find_value(data->copy_stack_a, QUARTER * 2);
-    THREE_QUARTERS = find_value(data->copy_stack_a, QUARTER * 3);
-    printf("1/4: %d | Valeur à ce rang: %d\n", (ft_lstsize(data->copy_stack_a)/4), QUARTER);
+    QUARTER = find_value(COPY, (ft_lstsize(COPY)/4));
+	MEDIANE = find_value(COPY, QUARTER * 2);
+    THREE_QUARTERS = find_value(COPY, QUARTER * 3);
+    printf("1/4: %d | Valeur à ce rang: %d\n", (ft_lstsize(COPY)/4), QUARTER);
     printf("Médiane: %d | Valeur à ce rang: %d\n", (QUARTER * 2), MEDIANE);
     printf("3/4: %d | Valeur à ce rang: %d\n", (QUARTER * 3), THREE_QUARTERS);
 
-
     // PUSH TOUS LES NBS EN DESSOUS DE QUARTER DANS B
-    while (contains_els_below(data, QUARTER) == SUCCESS) // Tant que la stack_a contient des nombres en dessous du/ égal à QUARTER
+
+    // while (STACK_A != last)
+    while (contains_els_below(data, QUARTER) == SUCCESS) 
     {
-        if (data->stack_a->number <= QUARTER)
+        if (STACK_A && STACK_A->number <= QUARTER)
         {
-            if (find_index(data->stack_a, STACK_A->number) > find_avg_index(data))
+            while (is_on_top_of_stack(data, STACK_A->number) == FAILURE)
             {
-                while () // tant que cet elt n'est pas tout en haut
-                {
+               
+                if (find_index(STACK_A, STACK_A->number) > find_avg_index(data))
                     reverse_a(data);
-                }
+                else
+                    rotate_a(data);
             }
-            else
-            {
-                while () // tant que cet elt n'est pas tout en haut
-                {
-                    reverse_a(data);
-                }
-            }
-            push_b(data);
+            push_b(data); 
         }
+        else
+            rotate_a(data);
     }
 	display_stack(data, 'A');
-    printf("toujours la\n");
 	display_stack(data, 'B');
-}
+}  
+
+//  printf("le nombre %ld ", tmp->number);
+
+// if (STACK_A->number <= QUARTER)
+//     push_b(data);
+// else
+//     rotate_a(data);
+
+// tmp = tmp->next;

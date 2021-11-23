@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:34:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/22 15:23:54 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/23 18:28:48 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,8 @@ int contains_elts_below_mediane(t_list *stack, long int mediane);
 void	sort_stack_b(t_data *data, long int min, long int max);
 void	sort_stack_a(t_data *data, long int min, long int max);
 int find_value(t_list *stack, int which_rank);
+int	is_on_top_of_stack(t_data *data, int element);
+int		contains_els_below(t_data *data, int limit);
+int		find_value(t_list *stack, int which_rank);
+
 #endif

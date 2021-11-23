@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:29:15 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/22 14:10:42 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/23 16:27:04 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	free_everything(t_data *data)
 {
 	t_list *tmp;
 	t_list *tmp_b;
-	// t_list *tmp_copy;
+	t_list *tmp_copy;
 
 	if (data)
 	{
@@ -30,16 +30,16 @@ void	free_everything(t_data *data)
 			}
 			data->stack_a = NULL;
 		}
-		// if (data->copy_stack_a)
-		// {
-		// 	while (data->copy_stack_a != NULL)
-		// 	{
-		// 		tmp_copy = data->copy_stack_a;
-		// 		data->copy_stack_a = data->copy_stack_a->next;
-		// 		free(tmp_copy);
-		// 	}
-		// 	data->copy_stack_a = NULL;
-		// }
+		if (data->copy_stack_a)
+		{
+			while (data->copy_stack_a != NULL)
+			{
+				tmp_copy = data->copy_stack_a;
+				data->copy_stack_a = data->copy_stack_a->next;
+				free(tmp_copy);
+			}
+			data->copy_stack_a = NULL;
+		}
 		if (data->stack_b)
 		{
 			while (data->stack_b != NULL)

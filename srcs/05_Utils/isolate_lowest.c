@@ -6,12 +6,13 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 17:40:37 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/18 18:20:24 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/23 16:20:10 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
+// But de cette function : Vérifie que le nb sélectionné est bien le 1er node
 int		is_lowest(t_data *data, long int compared)
 {
 	t_list *tmp;

@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 18:04:58 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/22 17:07:16 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/23 20:17:30 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	push_b(t_data *data)
 	{
 		copy = data->stack_a;
 		data->stack_a = data->stack_a->next; // Q à poser à Tiff: pourquoi l'ordre compte ici?
+		
 		copy->next = NULL;
 		ft_lstadd_front(&data->stack_b, copy);
 

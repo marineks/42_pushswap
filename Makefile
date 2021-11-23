@@ -6,7 +6,7 @@
 #    By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 17:33:17 by msanjuan          #+#    #+#              #
-#    Updated: 2021/11/22 14:07:37 by msanjuan         ###   ########.fr        #
+#    Updated: 2021/11/23 17:22:06 by msanjuan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ LIBFT_PATH = ${LIBFT_DIR}/libft.a
 
 # /* ~~~~~~~ COMPILING INFO ~~~~~~~ */
 CC = clang
-CFLAGS = -Wall -Werror -Wextra #-MMD
+CFLAGS = -g -Wall -Werror -Wextra #-MMD
 IFLAGS:= -I ./includes
 LFLAGS:= -L $(LIBFT_DIR) -lft
 

@@ -53,3 +53,4 @@ dkms.conf
 .gitignore
 srcs/*/a.out
 srcs/a.out
+.vscode/
