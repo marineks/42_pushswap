@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 17:40:37 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/23 16:20:10 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/23 21:10:18 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	isolate_smallest(t_data *data)
 	
 	tmp = data->stack_a;
 	first_el = tmp->number;
-	if (find_index(data->stack_a, find_lowest(data->stack_a)) > find_avg_index(data))
+	if (find_index(data->stack_a, find_lowest(data->stack_a)) > find_avg_index(data, STACK_A))
 	{
 		while (is_lowest(data, first_el) == FAILURE)
 		{
@@ -53,5 +53,4 @@ void	isolate_smallest(t_data *data)
 			first_el = tmp->number;
 		}
 	}
-	push_b(data);
 }

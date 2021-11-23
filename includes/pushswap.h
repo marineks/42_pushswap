@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:34:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/23 18:28:48 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/23 21:13:11 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define STACK_A data->stack_a
 # define STACK_B data->stack_b
 # define QUARTER data->quarter
-# define MEDIANE data->mediane
+# define MIDDLE data->mediane
 # define THREE_QUARTERS data->three_quarters
 
 # include "../libft/libft.h"
@@ -78,7 +78,7 @@ void	apply_big_num_solver(t_data *data);
 int		is_lowest(t_data *data, long int compared);
 int		find_lowest(t_list *stack);
 int		find_max(t_list *stack);
-int		find_avg_index(t_data *data);
+int		find_avg_index(t_data *data, t_list *stack);
 int		find_index(t_list *stack, long int element);
 long int		find_mediane(t_list *stack_a);
 void	isolate_smallest(t_data *data);
@@ -88,7 +88,7 @@ int contains_elts_below_mediane(t_list *stack, long int mediane);
 void	sort_stack_b(t_data *data, long int min, long int max);
 void	sort_stack_a(t_data *data, long int min, long int max);
 int find_value(t_list *stack, int which_rank);
-int	is_on_top_of_stack(t_data *data, int element);
+int	is_on_top_of(t_list *stack, int element);
 int		contains_els_below(t_data *data, int limit);
 int		find_value(t_list *stack, int which_rank);
 

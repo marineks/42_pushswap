@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 17:51:39 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/22 14:12:39 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/23 21:17:45 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int main(int argc, char **argv)
 		else if (check_sorted(&data) == FAILURE)
 			apply_algorithm(argc - 1, &data);
 	}
-	printf("toujours la dans le mainnn\n");
+	// printf("toujours la dans le mainnn\n");
 	free_everything(&data);
-	printf("tout bien free\n");
+	// printf("tout bien free\n");
 	return (0);
 }

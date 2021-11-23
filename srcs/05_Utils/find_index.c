@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 18:12:25 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/23 17:22:02 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/23 21:05:42 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 /*
 */
 
-int find_avg_index(t_data *data)
+int find_avg_index(t_data *data, t_list *stack)
 {
-	data->len_a = ft_lstsize(data->stack_a);
+	data->len_a = ft_lstsize(stack);
 	return (data->len_a/2);
 }
 
