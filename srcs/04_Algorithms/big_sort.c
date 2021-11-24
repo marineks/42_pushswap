@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 13:30:30 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/23 21:20:37 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/24 11:45:31 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,18 +62,15 @@ int	is_on_top_of(t_list *stack, int element)
 
 void	apply_big_num_solver(t_data *data)
 {
-    // TRIE LA COPIE DE STACK A
+    int total_size;
+    
+    total_size = ft_lstsize(COPY);
+
     sort_copy(COPY);
+    QUARTER = find_value(COPY, (total_size/4)); 
+	MIDDLE = find_value(COPY, total_size/2);
+    THREE_QUARTERS = find_value(COPY, total_size - total_size/4);
 
-    // TROUVER LES VALEURS POUR MES QUARTILES ET MEDIANE
-    QUARTER = find_value(COPY, (ft_lstsize(COPY)/4));
-	MIDDLE = find_value(COPY, QUARTER * 2) - 1;
-    THREE_QUARTERS = find_value(COPY, QUARTER * 3) - 1;
-    printf("1/4: %d | Valeur à ce rang: %d\n", (ft_lstsize(COPY)/4), QUARTER);
-    printf("2/4: %d | Valeur à ce rang: %d\n", (QUARTER * 2), MIDDLE);
-    printf("3/4: %d | Valeur à ce rang: %d\n", (QUARTER * 3), THREE_QUARTERS);
-
-    // return ;
     // PUSH TOUS LES NBS EN DESSOUS DE QUARTER DANS B
     while (contains_els_below(data, QUARTER) == SUCCESS) 
     {
@@ -81,15 +78,22 @@ void	apply_big_num_solver(t_data *data)
         {
             while (is_on_top_of(STACK_A, STACK_A->number) == FAILURE)
             {
+                
                 if (find_index(STACK_A, STACK_A->number) > find_avg_index(data, STACK_A))
                     reverse_a(data);
                 else
                     rotate_a(data);
+                // printf("je loop dans is on top\n");
             }
             push_b(data); 
         }
         else
+        {
+            // printf("le nombre n'est pas dans le chunk\n");
             rotate_a(data);
+            // STACK_A = STACK_A->next;
+        }
+            
     }
 	// display_stack(data, 'A');
 	// display_stack(data, 'B');
@@ -133,12 +137,23 @@ void	apply_big_num_solver(t_data *data)
     }
 	// display_stack(data, 'A');
 	// display_stack(data, 'B');
-
+    
     // Trier la stack A en cherchant le smallest number to put on top of stack A
-    while (check_sorted(data) == FAILURE)
-    {
-        isolate_smallest(data);
-    }
+    while (STACK_A)
+	{
+		isolate_smallest(data);
+        push_b(data);
+		if (data->len_a == 5)
+		{
+			apply_algorithm(data->len_a, data);
+			push_a(data);
+			if (check_sorted(data) == FAILURE)
+				swap_a(data);
+            break;
+			// while (data->len_b > 0)
+			// 	push_a(data);
+		}	
+	}
     // display_stack(data, 'A');
 	// display_stack(data, 'B');
 
