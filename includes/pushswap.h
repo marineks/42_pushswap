@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:34:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/23 21:13:11 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/24 13:34:52 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,16 +80,20 @@ int		find_lowest(t_list *stack);
 int		find_max(t_list *stack);
 int		find_avg_index(t_data *data, t_list *stack);
 int		find_index(t_list *stack, long int element);
-long int		find_mediane(t_list *stack_a);
 void	isolate_smallest(t_data *data);
+
+
 void	sort_copy(t_list *stack);
+
 void	balance_prev_rotate(t_data *data, int count, char *str);
-int contains_elts_below_mediane(t_list *stack, long int mediane);
+int 	contains_elts_below_mediane(t_list *stack, long int mediane);
+
 void	sort_stack_b(t_data *data, long int min, long int max);
 void	sort_stack_a(t_data *data, long int min, long int max);
-int find_value(t_list *stack, int which_rank);
-int	is_on_top_of(t_list *stack, int element);
+
+int 	find_value(t_list *stack, int which_rank);
+int		is_on_top_of(t_list *stack, int element);
 int		contains_els_below(t_data *data, int limit);
 int		find_value(t_list *stack, int which_rank);
-
+void    push_chunk_to_B(t_data *data, int limit);
 #endif

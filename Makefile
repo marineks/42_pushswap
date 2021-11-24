@@ -6,7 +6,7 @@
 #    By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 17:33:17 by msanjuan          #+#    #+#              #
-#    Updated: 2021/11/23 17:22:06 by msanjuan         ###   ########.fr        #
+#    Updated: 2021/11/24 13:37:14 by msanjuan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRCS = 01_Errors/check_digit.c \
 		05_Utils/find_index.c \
 		05_Utils/find_max.c \
 		05_Utils/find_mediane.c \
+		05_Utils/big_sort_utils.c \
 		
 
 OBJS = ${addprefix ${SRCS_DIR}, ${SRCS:.c=.o}}

@@ -6,58 +6,36 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 13:30:30 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/24 11:45:31 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/24 13:29:53 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 #include <stdio.h>
 
-// Selon la valeur Rank envoyée en argument, trouve le nb pour 1/4 1/2 3/4.
-int		find_value(t_list *stack, int which_rank)
+void    push_chunk_to_B(t_data *data, int limit)
 {
-	t_list 		*tmp;
-    int         searched_value;
-    int         i;
-	
-	tmp = stack;
-    i = 1;
-
-    while (i <= which_rank)
+    while (contains_els_below(data, limit) == SUCCESS) 
     {
-        tmp = tmp->next;
-        i++;
+        if (STACK_A && STACK_A->number <= limit)
+        {
+            while (is_on_top_of(STACK_A, STACK_A->number) == FAILURE)
+            {
+                
+                if (find_index(STACK_A, STACK_A->number) > find_avg_index(data, STACK_A))
+                    reverse_a(data);
+                else
+                    rotate_a(data);
+            }
+            push_b(data); 
+        }
+        else
+        {
+            // printf("le nombre n'est pas dans le chunk\n");
+            rotate_a(data);
+            // STACK_A = STACK_A->next;
+        }
     }
-    searched_value = tmp->number;
-	return (searched_value);
-}
-
-// Vérifie si la stack A contient toujrs des élts en dessous ou égal à la limite
-int		contains_els_below(t_data *data, int limit)
-{
-	t_list *tmp;
-
-	tmp = data->stack_a;
-	while (tmp != NULL)
-	{
-		if (tmp->number <= limit) 
-			return (SUCCESS);
-		tmp = tmp->next;
-	}
-	return (FAILURE);
-}
-
-// Vérifie si l'elt en argument est bien tout en haut de la stack
-int	is_on_top_of(t_list *stack, int element)
-{
-    t_list *tmp;
-
-    // printf("n'est pas en haut de la stack : \n");
-    tmp = stack;
-    if (tmp->number == element)
-        return (SUCCESS);
-    else
-        return (FAILURE);
 }
 
 void	apply_big_num_solver(t_data *data)
@@ -71,72 +49,11 @@ void	apply_big_num_solver(t_data *data)
 	MIDDLE = find_value(COPY, total_size/2);
     THREE_QUARTERS = find_value(COPY, total_size - total_size/4);
 
-    // PUSH TOUS LES NBS EN DESSOUS DE QUARTER DANS B
-    while (contains_els_below(data, QUARTER) == SUCCESS) 
-    {
-        if (STACK_A && STACK_A->number <= QUARTER)
-        {
-            while (is_on_top_of(STACK_A, STACK_A->number) == FAILURE)
-            {
-                
-                if (find_index(STACK_A, STACK_A->number) > find_avg_index(data, STACK_A))
-                    reverse_a(data);
-                else
-                    rotate_a(data);
-                // printf("je loop dans is on top\n");
-            }
-            push_b(data); 
-        }
-        else
-        {
-            // printf("le nombre n'est pas dans le chunk\n");
-            rotate_a(data);
-            // STACK_A = STACK_A->next;
-        }
-            
-    }
-	// display_stack(data, 'A');
-	// display_stack(data, 'B');
 
-    // PUSH TOUS LES NBS EN DESSOUS DE MIDDLE DANS B
-    while (contains_els_below(data, MIDDLE) == SUCCESS) 
-    {
-        if (STACK_A && STACK_A->number <= MIDDLE)
-        {
-            while (is_on_top_of(STACK_A, STACK_A->number) == FAILURE)
-            {
-                if (find_index(STACK_A, STACK_A->number) > find_avg_index(data, STACK_A))
-                    reverse_a(data);
-                else
-                    rotate_a(data);
-            }
-            push_b(data); 
-        }
-        else
-            rotate_a(data);
-    }
-	// display_stack(data, 'A');
-	// display_stack(data, 'B');
-
-    // PUSH TOUS LES NBS EN DESSOUS DE TROIS QUARTS DANS B
-     while (contains_els_below(data, THREE_QUARTERS) == SUCCESS) 
-    {
-        if (STACK_A && STACK_A->number <= THREE_QUARTERS)
-        {
-            while (is_on_top_of(STACK_A, STACK_A->number) == FAILURE)
-            {
-                if (find_index(STACK_A, STACK_A->number) > find_avg_index(data, STACK_A))
-                    reverse_a(data);
-                else
-                    rotate_a(data);
-            }
-            push_b(data); 
-        }
-        else
-            rotate_a(data);
-    }
-	// display_stack(data, 'A');
-	// display_stack(data, 'B');
+    push_chunk_to_B(data, QUARTER);
+    push_chunk_to_B(data, MIDDLE);
+    push_chunk_to_B(data, THREE_QUARTERS);
+   
     
     // Trier la stack A en cherchant le smallest number to put on top of stack A
     while (STACK_A)
@@ -190,3 +107,70 @@ void	apply_big_num_solver(t_data *data)
 //     rotate_a(data);
 
 // tmp = tmp->next;
+
+ // // PUSH TOUS LES NBS EN DESSOUS DE QUARTER DANS B
+    // while (contains_els_below(data, QUARTER) == SUCCESS) 
+    // {
+    //     if (STACK_A && STACK_A->number <= QUARTER)
+    //     {
+    //         while (is_on_top_of(STACK_A, STACK_A->number) == FAILURE)
+    //         {
+                
+    //             if (find_index(STACK_A, STACK_A->number) > find_avg_index(data, STACK_A))
+    //                 reverse_a(data);
+    //             else
+    //                 rotate_a(data);
+    //             // printf("je loop dans is on top\n");
+    //         }
+    //         push_b(data); 
+    //     }
+    //     else
+    //     {
+    //         // printf("le nombre n'est pas dans le chunk\n");
+    //         rotate_a(data);
+    //         // STACK_A = STACK_A->next;
+    //     }
+            
+    // }
+	// // display_stack(data, 'A');
+	// // display_stack(data, 'B');
+
+    // // PUSH TOUS LES NBS EN DESSOUS DE MIDDLE DANS B
+    // while (contains_els_below(data, MIDDLE) == SUCCESS) 
+    // {
+    //     if (STACK_A && STACK_A->number <= MIDDLE)
+    //     {
+    //         while (is_on_top_of(STACK_A, STACK_A->number) == FAILURE)
+    //         {
+    //             if (find_index(STACK_A, STACK_A->number) > find_avg_index(data, STACK_A))
+    //                 reverse_a(data);
+    //             else
+    //                 rotate_a(data);
+    //         }
+    //         push_b(data); 
+    //     }
+    //     else
+    //         rotate_a(data);
+    // }
+	// // display_stack(data, 'A');
+	// // display_stack(data, 'B');
+
+    // // PUSH TOUS LES NBS EN DESSOUS DE TROIS QUARTS DANS B
+    //  while (contains_els_below(data, THREE_QUARTERS) == SUCCESS) 
+    // {
+    //     if (STACK_A && STACK_A->number <= THREE_QUARTERS)
+    //     {
+    //         while (is_on_top_of(STACK_A, STACK_A->number) == FAILURE)
+    //         {
+    //             if (find_index(STACK_A, STACK_A->number) > find_avg_index(data, STACK_A))
+    //                 reverse_a(data);
+    //             else
+    //                 rotate_a(data);
+    //         }
+    //         push_b(data); 
+    //     }
+    //     else
+    //         rotate_a(data);
+    // }
+	// display_stack(data, 'A');
+	// display_stack(data, 'B');
