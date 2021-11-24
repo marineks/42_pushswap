@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 13:20:07 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/24 13:20:33 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/24 17:19:31 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		contains_els_below(t_data *data, int limit)
 }
 
 // Vérifie si l'elt en argument est bien tout en haut de la stack
-int	is_on_top_of(t_list *stack, int element)
+int	is_on_top_of(t_list *stack, long int element)
 {
     t_list *tmp;
 

@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:34:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/24 13:34:52 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/24 17:19:23 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define QUARTER data->quarter
 # define MIDDLE data->mediane
 # define THREE_QUARTERS data->three_quarters
+# define TOTAL_SIZE data->total_size
 
 # include "../libft/libft.h"
 # include <unistd.h>
@@ -38,6 +39,7 @@ typedef struct	s_data
 	int quarter;
 	int mediane;
 	int three_quarters;
+	int total_size;
 }				t_data;
 
 //      01 - CHECK ERRORS
@@ -92,8 +94,12 @@ void	sort_stack_b(t_data *data, long int min, long int max);
 void	sort_stack_a(t_data *data, long int min, long int max);
 
 int 	find_value(t_list *stack, int which_rank);
-int		is_on_top_of(t_list *stack, int element);
+int		is_on_top_of(t_list *stack, long int element);
 int		contains_els_below(t_data *data, int limit);
 int		find_value(t_list *stack, int which_rank);
 void    push_chunk_to_B(t_data *data, int limit);
+void    push_biggest_to_A(t_data *data);
+
+
+
 #endif
