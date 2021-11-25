@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 18:08:11 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/21 12:17:05 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 20:07:19 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,4 @@ void	display_stack(t_data *data, char which_stack)
 	printf("  |                     |   \n");
 	printf("  |=====================|   \n");
 	printf("\n\n");
-
-	// printf("  |====== STACK A ======|      |====== STACK B ======|  ");
-	// printf("  |                     |      |                     |  ");
-	// while (i < len)
-	// {
-	// printf("  |    i: %d  No: %d    |      |    i: %d  No: %d    |", i, stack_b[], i, stack_b[i]);
-	// 	i++;
-	// }
-	// printf("  |                     |      |                     |  ");
-	// printf("  |=====================|      |=====================|  ")
 }

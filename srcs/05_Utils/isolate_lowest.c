@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 17:40:37 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 14:40:28 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 20:05:31 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int		is_lowest(t_data *data, long int compared)
 	}
 	return (SUCCESS);
 }
-
 
 void	isolate_smallest(t_data *data)
 {

@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:34:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 17:06:20 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 20:02:39 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # define STACK_B data->stack_b
 # define TOTAL_SIZE data->total_size
 # define CHUNK data->chunk
-
 
 # include "../libft/libft.h"
 # include <unistd.h>
@@ -41,8 +40,8 @@ typedef struct	s_data
 }				t_data;
 
 //      01 - CHECK ERRORS
-int			is_digit(char *arg);
 long int	ft_atol(const char *str);
+int			is_digit(char *arg);
 int 		check_quotes(char *arg);
 int 		check_int_size(char *str);
 int			check_duplicates(t_data *data);
@@ -81,15 +80,18 @@ int		is_lowest(t_data *data, long int compared);
 int		find_lowest(t_list *stack);
 int		find_max(t_list *stack);
 int		find_index(t_list *stack, long int element);
-void	isolate_smallest(t_data *data);
-
-void	rra_or_ra(t_data* data, t_list *tmp);
-
-void	sort_copy(t_list *stack);
 int 	find_value(t_list *stack, int which_rank);
 int		is_on_top_of(t_list *stack, long int element);
-int		find_value(t_list *stack, int which_rank);
+void	isolate_smallest(t_data *data);
+void	sort_copy(t_list *stack);
+void    sort_last_chunk(t_data *data);
 void    push_chunk_to_B(t_data *data, int limit);
 void    push_everything_back_to_A(t_data *data);
+
+//		06 - OPTI
+void	rra_or_ra(t_data* data, t_list *tmp);
+void    sa_or_ss(t_data *data);
+void    ra_or_rr(t_data *data);
+void    rra_or_rrr(t_data *data);
 
 #endif

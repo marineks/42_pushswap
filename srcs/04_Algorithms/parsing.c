@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 14:24:30 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 14:04:39 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 19:03:13 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ void	apply_algorithm(int size_of_stack_a, t_data *data)
 	else if (size_of_stack_a <= 100)
 		apply_big_num_solver(data, 6);
 	else
-		apply_big_num_solver(data, 16);
+		apply_big_num_solver(data, 15);
 }

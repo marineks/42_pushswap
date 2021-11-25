@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_min.c                                         :+:      :+:    :+:   */
+/*   ra_or_rr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 18:09:04 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 20:06:00 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/11/25 19:41:21 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/11/25 19:42:03 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
-int find_lowest(t_list *stack)
+void    ra_or_rr(t_data *data)
 {
-	t_list 		*tmp;
-	int	lowest;
-	
-	tmp = stack;
-	lowest = stack->number;
-	while (tmp != NULL)
+	t_list *further;
+
+	if (data->len_b >= 2)
 	{
-		if (lowest > tmp->number)
-			lowest = tmp->number;
-		tmp = tmp->next;
+		further = STACK_B->next;
+		if (further->number < STACK_B->number)
+			rotate_both(data);
+		else
+			rotate_a(data);
 	}
-	return (lowest);
+	else
+		rotate_a(data);
 }

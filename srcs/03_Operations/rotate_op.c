@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 18:35:37 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 15:46:39 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 18:24:11 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,6 @@ void	rotate_both(t_data *data)
 	data->print = 0;
 	rotate_a(data);
 	rotate_b(data);
-	ft_putstr_fd("rr\n", 2);
+	ft_putstr_fd("rr\n", 1);
 	data->print = 1;
 }

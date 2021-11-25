@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_min.c                                         :+:      :+:    :+:   */
+/*   rra_or_rrr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 18:09:04 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 20:06:00 by msanjuan         ###   ########.fr       */
+/*   Created: 2021/11/25 19:43:09 by msanjuan          #+#    #+#             */
+/*   Updated: 2021/11/25 19:43:29 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
-int find_lowest(t_list *stack)
+void    rra_or_rrr(t_data *data)
 {
-	t_list 		*tmp;
-	int	lowest;
-	
-	tmp = stack;
-	lowest = stack->number;
-	while (tmp != NULL)
+	t_list *last;
+	t_list *head;
+
+	if (data->len_b >= 2)
 	{
-		if (lowest > tmp->number)
-			lowest = tmp->number;
-		tmp = tmp->next;
+		last = ft_lstlast(STACK_B);
+		head = STACK_B;
+		if (last->number < head->number)
+			reverse_both(data);
+		else
+			reverse_a(data);
 	}
-	return (lowest);
+	else
+		reverse_a(data);
 }

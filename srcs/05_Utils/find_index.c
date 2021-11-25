@@ -6,12 +6,11 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 18:12:25 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 14:40:04 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 20:06:06 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
-#include <stdio.h>
 
 int find_index(t_list *stack, long int element)
 {
