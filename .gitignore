@@ -54,3 +54,5 @@ dkms.conf
 srcs/*/a.out
 srcs/a.out
 .vscode/
+tester/
+push_swap_tester/
