@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:39:35 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/23 16:50:57 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 13:50:39 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@ void	initialize(t_data *data, int argc)
 	data->copy_stack_a = NULL;
 	data->len_a = argc - 1;
 	data->len_b = 0;
-	data->quarter = 0;
-	data->mediane = 0;
-	data->three_quarters = 0;
 }
 
 void	put_in_stack_a(char **arg, t_data *data)

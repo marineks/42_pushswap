@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 13:30:30 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/24 17:30:58 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 13:55:02 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void    push_chunk_to_B(t_data *data, int limit)
         further = STACK_A->next;
         if (tmp->number <= limit)
         {
-            // while (is_on_top_of(tmp, tmp->number) == FAILURE)
             while (STACK_A->number != tmp->number)
             {  
                 if (find_index(tmp, tmp->number) > ft_lstsize(STACK_A)/2)
@@ -48,6 +47,64 @@ void    push_chunk_to_B(t_data *data, int limit)
         i++;
     }
 }
+
+void	apply_big_num_solver(t_data *data, int nbr)
+{
+    // t_list *further;
+
+    TOTAL_SIZE = ft_lstsize(COPY);
+    // printf("size de la stack: %d\n", TOTAL_SIZE);
+    // further = STACK_A->next;
+    sort_copy(COPY);
+
+    int count;
+    count = 1;
+    while (count < nbr)
+    {
+        CHUNK = find_value(COPY, (TOTAL_SIZE/nbr * count));
+        push_chunk_to_B(data, CHUNK);
+        count++;
+    }
+   
+    // Trier la stack A en cherchant le smallest number to put on top of stack A
+    while (STACK_A)
+	{
+		isolate_smallest(data);
+        push_b(data);
+		if (data->len_a == 5)
+		{
+			apply_algorithm(data->len_a, data);
+			push_a(data);
+			if (check_sorted(data) == FAILURE)
+				swap_a(data);
+            break;
+			// while (data->len_b > 0)
+			// 	push_a(data);
+		}	
+	}
+    // display_stack(data, 'A');
+	// display_stack(data, 'B');
+
+    long int    biggest_nbr;
+
+    while (STACK_B)
+    {
+        biggest_nbr = find_max(STACK_B);
+       
+        
+        while (is_on_top_of(STACK_B, biggest_nbr) == FAILURE)
+        {
+            if (find_index(STACK_B, biggest_nbr) > find_avg_index(data, STACK_B))
+                reverse_b(data);
+            else
+                rotate_b(data);
+        }
+        push_a(data);
+    }
+
+}  
+
+
 
 // void    push_biggest_to_A(t_data *data)
 // {
@@ -83,52 +140,6 @@ void    push_chunk_to_B(t_data *data, int limit)
 
 // }
 
-void	apply_big_num_solver(t_data *data)
-{
-    // t_list *further;
-
-    TOTAL_SIZE = ft_lstsize(COPY);
-    // printf("size de la stack: %d\n", TOTAL_SIZE);
-    // further = STACK_A->next;
-    sort_copy(COPY);
-    QUARTER = find_value(COPY, (TOTAL_SIZE/4));
-	MIDDLE = find_value(COPY, TOTAL_SIZE/2);
-    THREE_QUARTERS = find_value(COPY, TOTAL_SIZE - TOTAL_SIZE/4);
-    
-    // printf("QUARTER: %d\n", QUARTER);
-    // printf("QUARTER: %d\n", MIDDLE);
-    // printf("QUARTER: %d\n", THREE_QUARTERS);
-
-    push_chunk_to_B(data, QUARTER);
-    // display_stack(data, 'A');
-	// display_stack(data, 'B');
-    push_chunk_to_B(data, MIDDLE);
-    // display_stack(data, 'A');
-	// display_stack(data, 'B');
-    push_chunk_to_B(data, THREE_QUARTERS);
-    // display_stack(data, 'A');
-	// display_stack(data, 'B');
-   
-
-    // Trier la stack A en cherchant le smallest number to put on top of stack A
-    while (STACK_A)
-	{
-		isolate_smallest(data);
-        push_b(data);
-		if (data->len_a == 5)
-		{
-			apply_algorithm(data->len_a, data);
-			push_a(data);
-			if (check_sorted(data) == FAILURE)
-				swap_a(data);
-            break;
-			// while (data->len_b > 0)
-			// 	push_a(data);
-		}	
-	}
-    // display_stack(data, 'A');
-	// display_stack(data, 'B');
-
 
     // while (STACK_B)
     // {
@@ -156,24 +167,6 @@ void	apply_big_num_solver(t_data *data)
     // }
     // display_stack(data, 'A');
 	// display_stack(data, 'B');
-    long int    biggest_nbr;
-
-    while (STACK_B)
-    {
-        biggest_nbr = find_max(STACK_B);
-       
-        
-        while (is_on_top_of(STACK_B, biggest_nbr) == FAILURE)
-        {
-            if (find_index(STACK_B, biggest_nbr) > find_avg_index(data, STACK_B))
-                reverse_b(data);
-            else
-                rotate_b(data);
-        }
-        push_a(data);
-    }
-
-}  
 
 //  printf("le nombre %ld ", tmp->number);
 

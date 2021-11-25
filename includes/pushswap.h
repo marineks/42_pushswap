@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:34:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/24 17:19:23 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 13:52:19 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@
 # define COPY data->copy_stack_a
 # define STACK_A data->stack_a
 # define STACK_B data->stack_b
-# define QUARTER data->quarter
-# define MIDDLE data->mediane
-# define THREE_QUARTERS data->three_quarters
 # define TOTAL_SIZE data->total_size
+# define CHUNK data->chunk
+
 
 # include "../libft/libft.h"
 # include <unistd.h>
@@ -36,10 +35,8 @@ typedef struct	s_data
 	t_list *copy_stack_a;
 	int len_a;
 	int len_b;
-	int quarter;
-	int mediane;
-	int three_quarters;
 	int total_size;
+	int chunk;
 }				t_data;
 
 //      01 - CHECK ERRORS
@@ -74,7 +71,8 @@ void	apply_2num_solver(t_data *data);
 void	apply_3num_solver(t_data *data);
 void	apply_4num_solver(t_data *data);
 void	apply_5num_solver(t_data *data);
-void	apply_big_num_solver(t_data *data);
+void    apply_insert_solver(t_data *data);
+void	apply_big_num_solver(t_data *data, int nbr);
 
 //		05 - UTILS
 int		is_lowest(t_data *data, long int compared);
@@ -86,13 +84,6 @@ void	isolate_smallest(t_data *data);
 
 
 void	sort_copy(t_list *stack);
-
-void	balance_prev_rotate(t_data *data, int count, char *str);
-int 	contains_elts_below_mediane(t_list *stack, long int mediane);
-
-void	sort_stack_b(t_data *data, long int min, long int max);
-void	sort_stack_a(t_data *data, long int min, long int max);
-
 int 	find_value(t_list *stack, int which_rank);
 int		is_on_top_of(t_list *stack, long int element);
 int		contains_els_below(t_data *data, int limit);
@@ -100,6 +91,7 @@ int		find_value(t_list *stack, int which_rank);
 void    push_chunk_to_B(t_data *data, int limit);
 void    push_biggest_to_A(t_data *data);
 
+void	apply_big_big_num_solver(t_data *data);
 
 
 #endif
