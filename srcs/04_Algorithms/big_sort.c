@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 13:30:30 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 13:55:02 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 14:48:33 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	apply_big_num_solver(t_data *data, int nbr)
         
         while (is_on_top_of(STACK_B, biggest_nbr) == FAILURE)
         {
-            if (find_index(STACK_B, biggest_nbr) > find_avg_index(data, STACK_B))
+            if (find_index(STACK_B, biggest_nbr) > ft_lstsize(STACK_B)/2)
                 reverse_b(data);
             else
                 rotate_b(data);

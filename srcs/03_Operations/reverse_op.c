@@ -6,12 +6,12 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 15:37:15 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/02 13:48:20 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 14:47:40 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
-#include <stdio.h>
+
 /* 
 rra : reverse rotate a - shift down all elements of stack a by 1. The last element
 becomes the first one.
@@ -33,29 +33,26 @@ t_list *ft_before_last(t_list *stack, int len)
 
 void	reverse_a(t_data *data)
 {
-
 	t_list *before_last;
 	t_list *last;
+
 	data->len_a = ft_lstsize(data->stack_a);
 	if (data->len_a > 1)
 	{
-		// EXEMPLE Une stack A <2 3 1> devient <1 2 3>
-		before_last = ft_before_last(data->stack_a, data->len_a); // Pointe sur 3 => 3 (1)
-		last = ft_lstlast(data->stack_a); // Pointe sur 1 (dernier node)
+		before_last = ft_before_last(data->stack_a, data->len_a);
+		last = ft_lstlast(data->stack_a);
 
-		last->next = data->stack_a; // Le node du "1" pointe vers le "2" => 1 2 (3 1) // boucle sans fin
-		before_last->next = NULL; // On coupe le 1 de fin => [1 2] 3 X
-		data->stack_a = last; //  on raccroche le "1" à la stack A qui fait 2 3 X
+		last->next = data->stack_a;
+		before_last->next = NULL;
+		data->stack_a = last;
 		
 		ft_putstr_fd("rra\n", 1);
-		// display_stack(data, 'A');
 	}
 }
 
 
 void	reverse_b(t_data *data)
 {
-
 	t_list *before_last;
 	t_list *last;
 
@@ -70,7 +67,6 @@ void	reverse_b(t_data *data)
 		data->stack_b = last; 
 		
 		ft_putstr_fd("rrb\n", 1);
-		// display_stack(data, 'B');
 	}
 }
 
@@ -79,6 +75,4 @@ void reverse_both(t_data *data)
 	reverse_a(data);
 	reverse_b(data); // attention il va imprimer les rrb et rra!!!!
 	ft_putstr_fd("rrr\n", 1);
-	// display_stack(data, 'A');
-	// display_stack(data, 'B');
 }

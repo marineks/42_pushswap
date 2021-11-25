@@ -6,14 +6,12 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:11:22 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 14:18:12 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 14:48:05 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../../includes/pushswap.h"
-#include <stdio.h>
-
 
 void    apply_insert_solver(t_data *data)
 {

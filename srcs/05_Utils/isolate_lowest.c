@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 17:40:37 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/24 11:22:39 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 14:40:28 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,13 @@ int		is_lowest(t_data *data, long int compared)
 
 	while (tmp != NULL)
 	{
-		if (compared > tmp->number) // on s'en moque s'il croise son dupe car ce sera == et non >
+		if (compared > tmp->number)
 			return (FAILURE);
 		tmp = tmp->next;
 	}
 	return (SUCCESS);
 }
+
 
 void	isolate_smallest(t_data *data)
 {
@@ -35,7 +36,7 @@ void	isolate_smallest(t_data *data)
 	
 	tmp = data->stack_a;
 	first_el = tmp->number;
-	if (find_index(STACK_A, find_lowest(STACK_A)) > find_avg_index(data, STACK_A))
+	if (find_index(STACK_A, find_lowest(STACK_A)) > ft_lstsize(STACK_A)/2)
 	{
 		while (is_lowest(data, first_el) == FAILURE)
 		{

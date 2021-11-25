@@ -6,7 +6,7 @@
 #    By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 17:33:17 by msanjuan          #+#    #+#              #
-#    Updated: 2021/11/25 13:58:39 by msanjuan         ###   ########.fr        #
+#    Updated: 2021/11/25 14:41:05 by msanjuan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ SRCS = 01_Errors/check_digit.c \
 		05_Utils/isolate_lowest.c \
 		05_Utils/find_index.c \
 		05_Utils/find_max.c \
-		05_Utils/find_mediane.c \
+		05_Utils/sort_copy.c \
 		05_Utils/big_sort_utils.c \
 
 		

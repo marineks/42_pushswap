@@ -6,20 +6,12 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 18:12:25 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/24 10:32:21 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 14:40:04 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 #include <stdio.h>
-/*
-*/
-
-int find_avg_index(t_data *data, t_list *stack)
-{
-	(void)data;
-	return (ft_lstsize(stack)/2);
-}
 
 int find_index(t_list *stack, long int element)
 {
@@ -35,6 +27,5 @@ int find_index(t_list *stack, long int element)
 		tmp = tmp->next;
 		i++;
 	}
-	// printf("i %d:\n", i);
 	return (i);
 }

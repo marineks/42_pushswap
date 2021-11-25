@@ -6,13 +6,12 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 14:42:16 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/23 20:52:58 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 14:47:55 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
-// Mon algo qui ne met que 5 coups max
 void	apply_4num_solver(t_data *data)
 {
 	while (check_sorted(data) == FAILURE)
