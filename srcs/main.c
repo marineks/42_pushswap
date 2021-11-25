@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 17:51:39 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/24 11:31:44 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 14:13:10 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,8 @@ int main(int argc, char **argv)
 		if (check_duplicates(&data) == FAILURE)
 			ft_putstr_fd("Error\n", 2);
 		else if (check_sorted(&data) == FAILURE)
-			apply_algorithm(argc - 1, &data);
-			
+			apply_algorithm(argc - 1, &data);	
 	}
-	// printf("toujours la dans le mainnn\n");
 	free_everything(&data);
-	// printf("tout bien free\n");
 	return (0);
 }
