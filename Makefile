@@ -6,13 +6,14 @@
 #    By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 17:33:17 by msanjuan          #+#    #+#              #
-#    Updated: 2021/11/25 14:41:05 by msanjuan         ###   ########.fr        #
+#    Updated: 2021/11/25 17:04:48 by msanjuan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # /* ~~~~~~ SOURCES ~~~~~~ */
 SRCS_DIR = ./srcs/
 SRCS = 01_Errors/check_digit.c \
+		01_Errors/check_quotes.c \
 		01_Errors/check_duplicates.c \
 		01_Errors/check_int_size.c \
 		01_Errors/check_sorted.c \

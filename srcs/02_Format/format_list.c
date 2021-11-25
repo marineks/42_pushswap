@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:39:35 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 15:42:29 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 17:03:43 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	put_in_stack_a(char **arg, t_data *data)
 	i = 1;
 	while (arg[i])
 	{
-		if (is_digit(arg[i]) == SUCCESS && 
+		if (is_digit(arg[i]) == SUCCESS &&
+			check_quotes(arg[i]) == FAILURE && 
 			check_int_size(arg[i]) == SUCCESS)
 		{
 			nb = ft_atol(arg[i]);

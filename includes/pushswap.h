@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:34:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 15:42:09 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 17:06:20 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct	s_data
 //      01 - CHECK ERRORS
 int			is_digit(char *arg);
 long int	ft_atol(const char *str);
+int 		check_quotes(char *arg);
 int 		check_int_size(char *str);
 int			check_duplicates(t_data *data);
 int			check_sorted(t_data *data);
