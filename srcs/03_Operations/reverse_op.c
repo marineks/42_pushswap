@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 15:37:15 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 14:47:40 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 15:43:43 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void	reverse_a(t_data *data)
 		before_last->next = NULL;
 		data->stack_a = last;
 		
-		ft_putstr_fd("rra\n", 1);
+		if (data->print == 1)
+			ft_putstr_fd("rra\n", 1);
 	}
 }
 
@@ -66,13 +67,16 @@ void	reverse_b(t_data *data)
 		before_last->next = NULL; 
 		data->stack_b = last; 
 		
-		ft_putstr_fd("rrb\n", 1);
+		if (data->print == 1)
+			ft_putstr_fd("rrb\n", 1);
 	}
 }
 
 void reverse_both(t_data *data)
 {
+	data->print = 0;
 	reverse_a(data);
 	reverse_b(data); // attention il va imprimer les rrb et rra!!!!
 	ft_putstr_fd("rrr\n", 1);
+	data->print = 1;
 }

@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:34:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 15:36:01 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 15:42:09 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct	s_data
 	int len_b;
 	int total_size;
 	int chunk;
+	int print;
 }				t_data;
 
 //      01 - CHECK ERRORS

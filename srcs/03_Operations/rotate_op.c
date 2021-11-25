@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 18:35:37 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 14:47:20 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 15:46:39 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ void	rotate_a(t_data *data)
 		data->stack_a = data->stack_a->next;
 		last->next = head;
 		head->next = NULL;
-	
-		ft_putstr_fd("ra\n", 1);
+
+		if (data->print == 1)
+			ft_putstr_fd("ra\n", 1);
 	}
 }
 
@@ -53,13 +54,16 @@ void	rotate_b(t_data *data)
 		last->next = head;
 		head->next = NULL;
 		
-		ft_putstr_fd("rb\n", 1);
+		if (data->print == 1)
+			ft_putstr_fd("rb\n", 1);
 	}
 }
 
 void	rotate_both(t_data *data)
 {
+	data->print = 0;
 	rotate_a(data);
 	rotate_b(data);
 	ft_putstr_fd("rr\n", 2);
+	data->print = 1;
 }

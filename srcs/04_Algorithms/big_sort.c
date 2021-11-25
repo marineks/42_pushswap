@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 13:30:30 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 15:37:20 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 15:40:39 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,4 @@ void	apply_big_num_solver(t_data *data, int nbr)
     }
     sort_last_chunk(data);
     push_everything_back_to_A(data);
-    // display_stack(data, 'A');
-    // display_stack(data, 'B');
 }  

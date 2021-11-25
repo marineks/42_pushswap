@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:39:35 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 14:27:00 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 15:42:29 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	initialize(t_data *data, int argc)
 	data->copy_stack_a = NULL;
 	data->len_a = argc - 1;
 	data->len_b = 0;
+	data->print = 1;
 }
 
 void	put_in_stack_a(char **arg, t_data *data)
