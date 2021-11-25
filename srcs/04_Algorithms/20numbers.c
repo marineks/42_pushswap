@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:11:22 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 13:59:10 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/25 14:18:12 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 void    apply_insert_solver(t_data *data)
 {
-     while (STACK_A)
+    while (check_sorted(data) == FAILURE)
 	{
 		isolate_smallest(data);
         push_b(data);
@@ -27,9 +27,8 @@ void    apply_insert_solver(t_data *data)
 			push_a(data);
 			if (check_sorted(data) == FAILURE)
 				swap_a(data);
-            break;
-			// while (data->len_b > 0)
-			// 	push_a(data);
+			while (data->len_b > 0)
+				push_a(data);
 		}	
 	}
 }
