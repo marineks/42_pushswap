@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 12:23:44 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 15:47:14 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/26 11:03:29 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 
 void	swap_a(t_data *data)
 {
-	t_list *head;
-	t_list *remaining_nodes;
-	
+	t_list	*head;
+	t_list	*remaining_nodes;
+
 	if (data->len_a > 1)
 	{
 		head = data->stack_a;
@@ -30,7 +30,6 @@ void	swap_a(t_data *data)
 		remaining_nodes = data->stack_a->next;
 		data->stack_a->next = head;
 		head->next = remaining_nodes;
-
 		if (data->print == 1)
 			ft_putstr_fd("sa\n", 1);
 	}
@@ -38,8 +37,8 @@ void	swap_a(t_data *data)
 
 void	swap_b(t_data *data)
 {
-	t_list *head;
-	t_list *remaining_nodes;
+	t_list	*head;
+	t_list	*remaining_nodes;
 
 	if (data->len_b > 1)
 	{
@@ -48,13 +47,12 @@ void	swap_b(t_data *data)
 		remaining_nodes = data->stack_b->next;
 		data->stack_b->next = head;
 		head->next = remaining_nodes;
-
 		if (data->print == 1)
 			ft_putstr_fd("sb\n", 1);
 	}
 }
 
-void swap_both(t_data *data)
+void	swap_both(t_data *data)
 {
 	data->print = 0;
 	swap_a(data);
