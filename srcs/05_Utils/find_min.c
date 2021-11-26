@@ -6,17 +6,17 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 18:09:04 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 20:06:00 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/26 12:17:47 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
-int find_lowest(t_list *stack)
+int	find_lowest(t_list *stack)
 {
-	t_list 		*tmp;
-	int	lowest;
-	
+	t_list	*tmp;
+	int		lowest;
+
 	tmp = stack;
 	lowest = stack->number;
 	while (tmp != NULL)
