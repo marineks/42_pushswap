@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:34:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 20:02:39 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/26 11:49:32 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ int		is_on_top_of(t_list *stack, long int element);
 void	isolate_smallest(t_data *data);
 void	sort_copy(t_list *stack);
 void    sort_last_chunk(t_data *data);
-void    push_chunk_to_B(t_data *data, int limit);
-void    push_everything_back_to_A(t_data *data);
+void    push_chunk_to_b(t_data *data, int limit);
+void    push_everything_back_to_a(t_data *data);
 
 //		06 - OPTI
 void	rra_or_ra(t_data* data, t_list *tmp);

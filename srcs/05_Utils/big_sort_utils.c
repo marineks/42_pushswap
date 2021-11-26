@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 13:20:07 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 20:02:09 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/26 11:53:43 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,23 @@
     for 100 numbers and under, or 15 by default). Stops before the last chunk 
     (i.e at 5/6)
 */
-void    push_chunk_to_B(t_data *data, int limit)
+
+void	push_chunk_to_b(t_data *data, int limit)
 {
-	int i;
-	t_list *tmp;
-	t_list *further;
+	int		i;
+	t_list	*tmp;
+	t_list	*further;
 
 	tmp = STACK_A;
 	i = 1;
-	while (i <= data->len_a) 
+	while (i <= data->len_a)
 	{
 		further = STACK_A->next;
 		if (tmp->number <= limit)
 		{
 			rra_or_ra(data, tmp);
 			push_b(data);
-			tmp = STACK_A; 
+			tmp = STACK_A;
 		}
 		else if (further->number <= limit)
 		{
@@ -52,7 +53,8 @@ void    push_chunk_to_B(t_data *data, int limit)
     the smallest numbers until only the 3 biggest numbers are left. Then, 
     applies my 3number-Algorithm.
 */
-void    sort_last_chunk(t_data *data)
+
+void	sort_last_chunk(t_data *data)
 {
 	while (STACK_A)
 	{
@@ -64,8 +66,8 @@ void    sort_last_chunk(t_data *data)
 			push_a(data);
 			if (check_sorted(data) == FAILURE)
 				swap_a(data);
-			break;
-		}	
+			break ;
+		}
 	}
 }
 
@@ -73,22 +75,22 @@ void    sort_last_chunk(t_data *data)
     Last step : Pushes everything by to Stack A by dynamically searching for the 
     biggest number and put it on top of Stack B.
 */
-void    push_everything_back_to_A(t_data *data)
+
+void	push_everything_back_to_a(t_data *data)
 {
-	long int    biggest_nbr;
-	t_list *further;
+	long int	biggest_nbr;
+	t_list		*further;
 
 	further = STACK_B->next;
 	while (STACK_B)
 	{
 		biggest_nbr = find_max(STACK_B);
 		further = STACK_B->next;
-	   
 		if (data->len_b >= 2 && biggest_nbr == further->number)
 			swap_b(data);
 		while (is_on_top_of(STACK_B, biggest_nbr) == FAILURE)
 		{
-			if (find_index(STACK_B, biggest_nbr) > ft_lstsize(STACK_B)/2)
+			if (find_index(STACK_B, biggest_nbr) > ft_lstsize(STACK_B) / 2)
 				reverse_b(data);
 			else
 				rotate_b(data);
@@ -97,31 +99,30 @@ void    push_everything_back_to_A(t_data *data)
 	}
 }
 
-int		find_value(t_list *stack, int which_rank)
+int	find_value(t_list *stack, int which_rank)
 {
-	t_list 		*tmp;
-    int         searched_value;
-    int         i;
-	
-	tmp = stack;
-    i = 1;
+	t_list	*tmp;
+	int		searched_value;
+	int		i;
 
-    while (i <= which_rank)
-    {
-        tmp = tmp->next;
-        i++;
-    }
-    searched_value = tmp->number;
+	tmp = stack;
+	i = 1;
+	while (i <= which_rank)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	searched_value = tmp->number;
 	return (searched_value);
 }
 
 int	is_on_top_of(t_list *stack, long int element)
 {
-    t_list *tmp;
+	t_list	*tmp;
 
-    tmp = stack;
-    if (tmp->number == element)
-        return (SUCCESS);
-    else
-        return (FAILURE);
+	tmp = stack;
+	if (tmp->number == element)
+		return (SUCCESS);
+	else
+		return (FAILURE);
 }
