@@ -6,19 +6,18 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:11:22 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 14:48:05 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/26 09:02:29 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../../includes/pushswap.h"
 
-void    apply_insert_solver(t_data *data)
+void	apply_insert_solver(t_data *data)
 {
-    while (check_sorted(data) == FAILURE)
+	while (check_sorted(data) == FAILURE)
 	{
 		isolate_smallest(data);
-        push_b(data);
+		push_b(data);
 		if (data->len_a == 5)
 		{
 			apply_algorithm(data->len_a, data);
