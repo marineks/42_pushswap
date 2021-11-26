@@ -6,15 +6,15 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 19:43:40 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 19:43:58 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/26 11:28:03 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
-void    sa_or_ss(t_data *data)
+void	sa_or_ss(t_data *data)
 {
-	t_list *further;
+	t_list	*further;
 
 	if (data->len_b >= 2)
 	{
