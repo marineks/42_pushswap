@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:15:44 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 14:46:43 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/26 09:20:31 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,19 @@
 
 void	apply_3num_solver(t_data *data)
 {
-	t_list *first_elt; 
-	t_list *second_elt;
-	t_list *third_elt;
+	t_list	*first_elt;
+	t_list	*second_elt;
+	t_list	*third_elt;
 
 	first_elt = data->stack_a;
 	second_elt = first_elt->next;
 	third_elt = second_elt->next;
-	
 	while (check_sorted(data) == FAILURE)
 	{
-		if (third_elt->number > first_elt->number 
+		if (third_elt->number > first_elt->number
 			&& third_elt->number > second_elt->number)
 			swap_a(data);
-		else if (first_elt->number > third_elt->number 
+		else if (first_elt->number > third_elt->number
 			&& first_elt->number > second_elt->number)
 			rotate_a(data);
 		else
