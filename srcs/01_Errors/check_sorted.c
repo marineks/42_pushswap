@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 17:46:24 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/22 17:53:57 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/26 09:26:19 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	check_sorted(t_data *data)
 {
-	t_list *copy;
-	t_list *one_step_further;
+	t_list	*copy;
+	t_list	*one_step_further;
 
 	copy = data->stack_a;
 	one_step_further = copy->next;
