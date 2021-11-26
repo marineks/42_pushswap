@@ -6,16 +6,16 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 19:43:09 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 19:43:29 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/26 11:26:47 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
-void    rra_or_rrr(t_data *data)
+void	rra_or_rrr(t_data *data)
 {
-	t_list *last;
-	t_list *head;
+	t_list	*last;
+	t_list	*head;
 
 	if (data->len_b >= 2)
 	{
