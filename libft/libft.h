@@ -6,12 +6,12 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:11:30 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/10/15 14:32:31 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/26 11:37:06 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
-# define	LIBFT_H
+# define LIBFT_H
 
 # include <stddef.h>
 # include <stdlib.h>
@@ -65,6 +65,6 @@ t_list	*ft_lstlast(t_list *lst);
 void	ft_lstdelone(t_list *lst, void (*del)(long int));
 void	ft_lstclear(t_list **lst, void (*del)(long int));
 void	ft_lstiter(t_list *lst, void (*f)(long int));
-t_list	*ft_lstmap(t_list *lst, long int(*f)(long int), void (*del)(long int));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

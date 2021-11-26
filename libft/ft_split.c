@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 16:58:10 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/06/30 15:14:46 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/26 11:35:56 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static size_t	ft_new_string_count(char const *str, char set)
 	while (str[i] != '\0')
 	{
 		is_not_set = str[i] != set;
-		next_is_set = str[i + 1] == set || str[i + 1] == '\0';
+		next_is_set = (str[i + 1] == set || str[i + 1] == '\0');
 		if (is_not_set && next_is_set)
 			count++;
 		i++;
@@ -101,7 +101,7 @@ char	**ft_split(char const *str, char set)
 	if (!str)
 		return (NULL);
 	string_count = ft_new_string_count(str, set);
-	if (string_count == 0 )
+	if (string_count == 0)
 	{
 		new_tab = ft_calloc(1, sizeof(char *));
 		new_tab[0] = NULL;
