@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:29:15 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 14:24:37 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/26 10:14:30 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_stack(t_list *stack)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	if (stack)
 	{
