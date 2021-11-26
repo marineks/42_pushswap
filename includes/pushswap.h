@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 14:34:47 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/26 12:54:22 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/26 15:51:22 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int			find_lowest(t_list *stack);
 int			find_max(t_list *stack);
 int			find_index(t_list *stack, long int element);
 int			find_value(t_list *stack, int which_rank);
+int			find_second_to_max(t_list *stack);
 int			is_on_top_of(t_list *stack, long int element);
 void		isolate_smallest(t_data *data);
 void		sort_copy(t_list *stack);
