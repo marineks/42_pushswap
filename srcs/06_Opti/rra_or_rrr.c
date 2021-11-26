@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 19:43:09 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/26 11:26:47 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/26 12:54:11 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	rra_or_rrr(t_data *data)
 
 	if (data->len_b >= 2)
 	{
-		last = ft_lstlast(STACK_B);
-		head = STACK_B;
+		last = ft_lstlast(data->stack_b);
+		head = data->stack_b;
 		if (last->number < head->number)
 			reverse_both(data);
 		else

@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 13:20:07 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/26 11:53:43 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/26 12:55:27 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@ void	push_chunk_to_b(t_data *data, int limit)
 	t_list	*tmp;
 	t_list	*further;
 
-	tmp = STACK_A;
+	tmp = data->stack_a;
 	i = 1;
 	while (i <= data->len_a)
 	{
-		further = STACK_A->next;
+		further = data->stack_a->next;
 		if (tmp->number <= limit)
 		{
 			rra_or_ra(data, tmp);
 			push_b(data);
-			tmp = STACK_A;
+			tmp = data->stack_a;
 		}
 		else if (further->number <= limit)
 		{
@@ -56,7 +56,7 @@ void	push_chunk_to_b(t_data *data, int limit)
 
 void	sort_last_chunk(t_data *data)
 {
-	while (STACK_A)
+	while (data->stack_a)
 	{
 		isolate_smallest(data);
 		push_b(data);
@@ -80,17 +80,19 @@ void	push_everything_back_to_a(t_data *data)
 {
 	long int	biggest_nbr;
 	t_list		*further;
+	int			mid;
 
-	further = STACK_B->next;
-	while (STACK_B)
+	further = data->stack_b->next;
+	while (data->stack_b)
 	{
-		biggest_nbr = find_max(STACK_B);
-		further = STACK_B->next;
+		biggest_nbr = find_max(data->stack_b);
+		further = data->stack_b->next;
 		if (data->len_b >= 2 && biggest_nbr == further->number)
 			swap_b(data);
-		while (is_on_top_of(STACK_B, biggest_nbr) == FAILURE)
+		while (is_on_top_of(data->stack_b, biggest_nbr) == FAILURE)
 		{
-			if (find_index(STACK_B, biggest_nbr) > ft_lstsize(STACK_B) / 2)
+			mid = ft_lstsize(data->stack_b) / 2;
+			if (find_index(data->stack_b, biggest_nbr) > mid)
 				reverse_b(data);
 			else
 				rotate_b(data);

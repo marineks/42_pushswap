@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:29:15 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/26 10:14:30 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/26 12:45:57 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ void	free_everything(t_data *data)
 {
 	if (data)
 	{
-		free_stack(STACK_A);
-		free_stack(COPY);
-		free_stack(STACK_B);
+		free_stack(data->stack_a);
+		free_stack(data->copy_stack_a);
+		free_stack(data->stack_b);
 	}
 	else
 		return ;

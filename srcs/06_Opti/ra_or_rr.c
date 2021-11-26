@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 19:41:21 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/26 11:15:00 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/26 12:53:26 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	ra_or_rr(t_data *data)
 
 	if (data->len_b >= 2)
 	{
-		further = STACK_B->next;
-		if (further->number < STACK_B->number)
+		further = data->stack_b->next;
+		if (further->number < data->stack_b->number)
 			rotate_both(data);
 		else
 			rotate_a(data);

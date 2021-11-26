@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 17:40:37 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/26 12:24:53 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/26 12:54:54 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,17 @@ void	isolate_smallest(t_data *data)
 {
 	t_list		*tmp;
 	long int	first_el;
+	int			mid;
 
-	tmp = STACK_A;
+	tmp = data->stack_a;
 	first_el = tmp->number;
-	if (find_index(STACK_A, find_lowest(STACK_A)) > ft_lstsize(STACK_A) / 2)
+	mid = ft_lstsize(data->stack_a) / 2;
+	if (find_index(data->stack_a, find_lowest(data->stack_a)) > mid)
 	{
 		while (is_lowest(data, first_el) == FAILURE)
 		{
 			reverse_a(data);
-			tmp = STACK_A;
+			tmp = data->stack_a;
 			first_el = tmp->number;
 		}
 	}
@@ -57,7 +59,7 @@ void	isolate_smallest(t_data *data)
 		while (is_lowest(data, first_el) == FAILURE)
 		{
 			rotate_a(data);
-			tmp = STACK_A;
+			tmp = data->stack_a;
 			first_el = tmp->number;
 		}
 	}

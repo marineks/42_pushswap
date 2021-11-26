@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 19:43:40 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/26 11:28:03 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/26 12:54:03 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	sa_or_ss(t_data *data)
 
 	if (data->len_b >= 2)
 	{
-		further = STACK_B->next;
-		if (further->number > STACK_B->number)
+		further = data->stack_b->next;
+		if (further->number > data->stack_b->number)
 			swap_both(data);
 		else
 			swap_a(data);
