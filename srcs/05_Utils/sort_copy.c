@@ -6,34 +6,33 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 14:08:21 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/25 20:05:23 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/11/26 12:27:28 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
-void    sort_copy(t_list *stack)
+void	sort_copy(t_list *stack)
 {
-    t_list      *one_step_further;
-    t_list      *head;
-	int	temp;
+	t_list	*one_step_further;
+	t_list	*head;
+	int		temp;
 
-    head = stack;
-    one_step_further = head->next;
-    while (head != NULL)
-    {
-        one_step_further = head->next;
-    
-        while (one_step_further != NULL)
-        {
-            if (head->number > one_step_further->number)
-            {
-                temp = head->number;
-                head->number = one_step_further->number;
-                one_step_further->number = temp;
-            }
-            one_step_further = one_step_further->next;
-        } 
-        head = head->next;
-    }
+	head = stack;
+	one_step_further = head->next;
+	while (head != NULL)
+	{
+		one_step_further = head->next;
+		while (one_step_further != NULL)
+		{
+			if (head->number > one_step_further->number)
+			{
+				temp = head->number;
+				head->number = one_step_further->number;
+				one_step_further->number = temp;
+			}
+			one_step_further = one_step_further->next;
+		}
+		head = head->next;
+	}
 }
