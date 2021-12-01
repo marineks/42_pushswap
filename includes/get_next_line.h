@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 17:00:15 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/30 17:00:25 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/12/01 16:32:35 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-char	*ft_strchr(char *s, int c);
-char	*ft_strjoin(char *s1, char *s2);
-char	*ft_strdup(char *s1);
+char	*f_strchr(char *s, int c);
+char	*f_strjoin(char *s1, char *s2);
+char	*f_strdup(char *s1);
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *str);
 

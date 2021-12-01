@@ -6,11 +6,11 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 17:01:46 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/30 17:01:52 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/12/01 16:39:00 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../includes/get_next_line.h"
 
 size_t	ft_strlen(const char *str)
 {
@@ -22,7 +22,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strchr(char *s, int c)
+char	*f_strchr(char *s, int c)
 {
 	while (*s)
 	{
@@ -35,7 +35,7 @@ char	*ft_strchr(char *s, int c)
 	return (s);
 }
 
-char	*ft_strdup(char *s1)
+char	*f_strdup(char *s1)
 {
 	char	*copy;
 	int		i;
@@ -53,7 +53,7 @@ char	*ft_strdup(char *s1)
 	return (copy);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*f_strjoin(char *s1, char *s2)
 {
 	char	*res;
 	size_t	i;
@@ -61,7 +61,7 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	i = 0;
 	if (s1 == NULL)
-		return (ft_strdup(s2));
+		return (f_strdup(s2));
 	res = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!res)
 		return (NULL);

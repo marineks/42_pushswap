@@ -6,18 +6,18 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 17:01:03 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/30 17:01:57 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/12/01 16:38:18 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../includes/get_next_line.h"
 
 int	ft_malloc_count(char *stock)
 {
 	int i;
 
 	i = 0;
-	if (ft_strchr(stock, '\n') == NULL)
+	if (f_strchr(stock, '\n') == NULL)
 		return (ft_strlen(stock));
 	while (stock[i] != '\n' && stock[i] != '\0')
 		i++;
@@ -91,8 +91,8 @@ char	*get_next_line(int fd)
 	if ((read(fd, buffer, 0) == -1) || BUFFER_SIZE <= 0)
 		return (NULL);
 	ret = 1;
-	stock = ft_strjoin(stock, buffer);
-	while (ft_strchr(stock, '\n') == NULL && ret > 0)
+	stock = f_strjoin(stock, buffer);
+	while (f_strchr(stock, '\n') == NULL && ret > 0)
 	{
 		ret = read(fd, buffer, BUFFER_SIZE);
 		if (ret < 0)
@@ -101,7 +101,7 @@ char	*get_next_line(int fd)
 			return (NULL);
 		}
 		buffer[ret] = '\0';
-		stock = ft_strjoin(stock, buffer);
+		stock = f_strjoin(stock, buffer);
 	}
 	return (ft_line_results(ret, stock, buffer));
 }

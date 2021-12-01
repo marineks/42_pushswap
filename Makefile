@@ -6,7 +6,7 @@
 #    By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 17:33:17 by msanjuan          #+#    #+#              #
-#    Updated: 2021/12/01 12:32:36 by msanjuan         ###   ########.fr        #
+#    Updated: 2021/12/01 16:13:05 by msanjuan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,6 +66,7 @@ BONUS_DIR = ./bonus/
 BONUS_SRCS = checker.c \
 		get_next_line.c \
 		get_next_line_utils.c \
+		double_op_exception.c \
 
 B_OBJS = ${addprefix ${BONUS_DIR}, ${BONUS_SRCS:.c=.o}}
 
