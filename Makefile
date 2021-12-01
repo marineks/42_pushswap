@@ -6,7 +6,7 @@
 #    By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 17:33:17 by msanjuan          #+#    #+#              #
-#    Updated: 2021/11/26 12:25:36 by msanjuan         ###   ########.fr        #
+#    Updated: 2021/12/01 12:32:36 by msanjuan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,15 @@ LFLAGS:= -L $(LIBFT_DIR) -lft
 NAME = push_swap
 RM = rm -f
 
+# /* ~~~~~~~ BONUS ~~~~~~~ */
+BONUS = checker
+BONUS_DIR = ./bonus/
+BONUS_SRCS = checker.c \
+		get_next_line.c \
+		get_next_line_utils.c \
+
+B_OBJS = ${addprefix ${BONUS_DIR}, ${BONUS_SRCS:.c=.o}}
+
 # /* ~~~~~~~ Colors ~~~~~~~ */
 BLACK:="\033[1;30m"
 RED:="\033[1;31m"
@@ -77,15 +86,23 @@ $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) $(SRCS_DIR)main.c $(IFLAGS) $(LFLAGS) -o $(NAME)
 	@echo $(GREEN) "[OK COMPILED]" $(EOC)
 
+$(BONUS): $(OBJS) $(B_OBJS)
+	@cd $(LIBFT_DIR) && $(MAKE)
+	@echo $(CYAN) " - Compiling $@" $(RED)
+	@$(CC) $(CFLAGS) $(OBJS) $(B_OBJS) $(BONUS_DIR)bonus_main.c $(IFLAGS) $(LFLAGS) -o $(BONUS)
+	@echo $(GREEN) "[OK COMPILED]" $(EOC)
+
 clean:
 		@echo $(PURPLE) "[🧹Cleaning...🧹]" $(EOC)
 		@${RM} ${OBJS}
+		@${RM} ${B_OBJS}
 		@${RM} -r ${OBJ_DIR} 
 		@make -C ${LIBFT_DIR} -f ${LIBFT_MAKE} clean
 
 fclean: clean
 		@echo $(PURPLE) "[🧹FCleaning...🧹]" $(EOC)
 		@${RM} ${OBJS} ${NAME} a.out
+		@${RM} ${B_OBJS} ${BONUS} a.out
 
 re: 	fclean all
 
