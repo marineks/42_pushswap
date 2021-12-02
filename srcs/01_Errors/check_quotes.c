@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 17:05:05 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/26 09:29:08 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/12/02 11:30:53 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,7 @@
 
 int	check_quotes(char *arg)
 {
-	int	i;
-	int	count;
-
-	i = 0;
-	count = 0;
-	while (arg[i])
-	{
-		if (arg[i] == '\"')
-			count++;
-		i++;
-	}
-	if (count == 2)
+	if (*arg == '\0')
 		return (FAILURE);
 	else
 		return (SUCCESS);

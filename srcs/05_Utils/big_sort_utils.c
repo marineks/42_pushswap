@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 13:20:07 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/11/29 16:07:48 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/12/02 11:37:50 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ void	push_everything_back_to_a(t_data *data)
 {
 	long int	biggest_nbr;
 	long int	second_biggest;
-
 	t_list		*further;
 	int			mid;
 
@@ -90,7 +89,7 @@ void	push_everything_back_to_a(t_data *data)
 		biggest_nbr = find_max(data->stack_b);
 		second_biggest = find_second_to_max(data->stack_b);
 		further = data->stack_b->next;
-		if (data->len_b >= 2 && data->stack_b->number == second_biggest 
+		if (data->len_b >= 2 && data->stack_b->number == second_biggest
 			&& biggest_nbr == further->number)
 			swap_b(data);
 		while (is_on_top_of(data->stack_b, biggest_nbr) == FAILURE)
