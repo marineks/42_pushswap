@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 14:11:57 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/12/01 17:00:36 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/12/02 11:09:40 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,36 +43,32 @@ else
 
 */
 
-
-
 void    do_operation(char *str, t_data *data)
 {
-    int len;
     data->print = 0; 
 
-    len = ft_strlen(str) - 1;
-    printf("Str : |%s| | len : %d | result comparaison : %d\n", str, len, ft_strncmp(str, "sa\n", len));
-    if (ft_strncmp(str, "ra\n", len) == 0)
+    // printf("Str : |%s| | result comparaison : %d\n", str, ft_strncmp(str, "sa\n", 3));
+    if (ft_strncmp(str, "ra\n", 3) == 0)
         rotate_a(data);
-    if (ft_strncmp(str, "rb\n", len) == 0)
+    else if (ft_strncmp(str, "rb\n", 3) == 0)
         rotate_b(data);
-    if (ft_strncmp(str, "rr\n", len) == 0)
+    else if (ft_strncmp(str, "rr\n", 3) == 0)
         rotate_rr(data);
-    if (ft_strncmp(str, "rra\n", len) == 0)
+    else if (ft_strncmp(str, "rra\n", 4) == 0)
         reverse_a(data);
-    if (ft_strncmp(str, "rrb\n", len) == 0)
+    else if (ft_strncmp(str, "rrb\n", 4) == 0)
         reverse_b(data);
-    if (ft_strncmp(str, "rrr\n", len) == 0)
+    else if (ft_strncmp(str, "rrr\n", 4) == 0)
         reverse_rrr(data);
-    if (ft_strncmp(str, "sa\n", len) == 0)
+    else if (ft_strncmp(str, "sa\n", 3) == 0)
         swap_a(data);
-    if (ft_strncmp(str, "sb\n", len) == 0)
+    else if (ft_strncmp(str, "sb\n", 3) == 0)
         swap_b(data);
-    if (ft_strncmp(str, "ss\n", len) == 0)
+    else if (ft_strncmp(str, "ss\n", 3) == 0)
         swap_ss(data);
-    if (ft_strncmp(str, "pa\n", len) == 0)
+    else if (ft_strncmp(str, "pa\n", 3) == 0)
         push_a(data);
-    if (ft_strncmp(str, "pb\n", len) == 0)
+    else if (ft_strncmp(str, "pb\n", 3) == 0)
         push_b(data);
     else
     {
@@ -88,20 +84,17 @@ void    get_instructions(t_data *data)
     // faire une string qui va recueillir l'arg
     char *arg;
 
-    arg = "start";
+    // arg = "start";
+    arg = get_next_line(0);
     // Si on arrive au EOF (aka CTRL+D), arg deviendra NULL et la boucle sera finie;
     while (arg != NULL)
     {
-         // get next line en fd 0 pour lire le terminal
-        arg = get_next_line(0);
-
-        // executer l'operation
         do_operation(arg, data);
         free(arg);
-        
-
+        arg = get_next_line(0);
     }
-   
+    free(arg);
+    
     
 }
 
