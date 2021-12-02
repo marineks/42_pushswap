@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 17:01:03 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/12/01 16:38:18 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/12/02 12:00:47 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_malloc_count(char *stock)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (f_strchr(stock, '\n') == NULL)
