@@ -6,7 +6,7 @@
 /*   By: msanjuan <msanjuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 17:04:25 by msanjuan          #+#    #+#             */
-/*   Updated: 2021/12/02 11:45:36 by msanjuan         ###   ########.fr       */
+/*   Updated: 2021/12/02 11:58:54 by msanjuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 // CHECKER.c
 void	get_instructions(t_data *data);
 void	do_operation(char *str, t_data *data);
+void	exit_error(t_data *data, char *str);
 
 // DOUBLE_OP_EXCEPTION.c
 void	reverse_rrr(t_data *data);
